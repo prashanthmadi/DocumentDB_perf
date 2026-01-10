@@ -1,0 +1,38 @@
+[
+  {
+    "name": "idx_state",
+    "keys": {"fields.state": 1}
+  },
+  {
+    "name": "idx_device_manufacturer",
+    "keys": {"fields.deviceManufacturer": 1}
+  },
+  {
+    "name": "idx_credit_score",
+    "keys": {"fields.conModelScore": 1}
+  },
+  {
+    "name": "idx_created_date",
+    "keys": {"createdDateTime": 1}
+  },
+  {
+    "name": "idx_decision_status",
+    "keys": {"fields.conCurrentDecision": 1}
+  },
+  {
+    "name": "idx_operating_system",
+    "keys": {"fields.operatingSystem": 1}
+  },
+  {
+    "name": "idx_state_city_compound",
+    "keys": {"fields.state": 1, "fields.city": 1}
+  },
+  {
+    "name": "idx_manufacturer_model_compound",
+    "keys": {"fields.deviceManufacturer": 1, "fields.deviceModel": 1}
+  },
+  {
+    "name": "idx_state_credit_compound",
+    "keys": {"fields.state": 1, "fields.conModelScore": 1}
+  }
+]

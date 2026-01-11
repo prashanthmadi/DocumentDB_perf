@@ -131,10 +131,10 @@ def execute_queries(config):
                 db_time = 0
                 for line in result.stdout.split('\n'):
                     if line.startswith('SERVER_TIME:'):
-                        db_time = int(line.split(':')[1]) / 1000.0
+                        db_time = float(line.split(':')[1])
                         break
                 
-                print(f"   ✅ Server Time: {db_time:.3f}s")
+                print(f"   ✅ Server Time: {db_time:.3f}ms")
                 status = "SUCCESS"
             else:
                 print(f"   ❌ Failed: {result.stderr}")
@@ -165,7 +165,7 @@ def execute_queries(config):
     avg_time = total_time / len(results) if results else 0
     
     print(f"\n📊 Summary: {successful}/{len(results)} queries executed")
-    print(f"⏱️ Total: {total_time:.3f}s | Avg: {avg_time:.3f}s\n")
+    print(f"⏱️ Total: {total_time:.3f}ms | Avg: {avg_time:.3f}ms\n")
     
     save_results_to_csv(config, results)
     

@@ -1,126 +1,126 @@
 [
     {
         "description": "Count applications by device manufacturer",
-        "query": "targetDb.applications.countDocuments({'fields.deviceManufacturer': 'Apple'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.deviceManufacturer': 'Apple'})"
     },
     {
         "description": "Count iOS applications",
-        "query": "targetDb.applications.countDocuments({'fields.operatingSystem': 'iOS'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.operatingSystem': 'iOS'})"
     },
     {
         "description": "Count Android applications",
-        "query": "targetDb.applications.countDocuments({'fields.operatingSystem': 'Android'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.operatingSystem': 'Android'})"
     },
     {
         "description": "Count approved applications",
-        "query": "targetDb.applications.countDocuments({'fields.conCurrentDecision': 'APPROVED'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.conCurrentDecision': 'APPROVED'})"
     },
     {
         "description": "Count pending applications",
-        "query": "targetDb.applications.countDocuments({'fields.conCurrentDecision': 'PENDING'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.conCurrentDecision': 'PENDING'})"
     },
     {
         "description": "Count rejected applications",
-        "query": "targetDb.applications.countDocuments({'fields.conCurrentDecision': 'REJECTED'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.conCurrentDecision': 'REJECTED'})"
     },
     {
         "description": "Count high credit score applications (>750)",
-        "query": "targetDb.applications.countDocuments({'fields.conModelScore': {$gte: 750}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.conModelScore': {$gte: 750}})"
     },
     {
         "description": "Count low credit score applications (<600)",
-        "query": "targetDb.applications.countDocuments({'fields.conModelScore': {$lt: 600}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.conModelScore': {$lt: 600}})"
     },
     {
         "description": "Count applications with 5G connection",
-        "query": "targetDb.applications.countDocuments({'fields.connectionType': '5G'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.connectionType': '5G'})"
     },
     {
         "description": "Count applications with 4G connection",
-        "query": "targetDb.applications.countDocuments({'fields.connectionType': '4G'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.connectionType': '4G'})"
     },
     {
         "description": "Count Samsung devices",
-        "query": "targetDb.applications.countDocuments({'fields.deviceManufacturer': 'Samsung'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.deviceManufacturer': 'Samsung'})"
     },
     {
         "description": "Count applications with low battery (<20%)",
-        "query": "targetDb.applications.countDocuments({'fields.batteryLevel': {$lt: 20}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.batteryLevel': {$lt: 20}})"
     },
     {
         "description": "Count applications with high battery (>80%)",
-        "query": "targetDb.applications.countDocuments({'fields.batteryLevel': {$gt: 80}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.batteryLevel': {$gt: 80}})"
     },
     {
         "description": "Count applications with high network latency (>500ms)",
-        "query": "targetDb.applications.countDocuments({'fields.networkLatency': {$gt: 500}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.networkLatency': {$gt: 500}})"
     },
     {
         "description": "Count short session applications (<30 minutes)",
-        "query": "targetDb.applications.countDocuments({'fields.sessionDuration': {$lt: 1800}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.sessionDuration': {$lt: 1800}})"
     },
     {
         "description": "Count long session applications (>2 hours)",
-        "query": "targetDb.applications.countDocuments({'fields.sessionDuration': {$gt: 7200}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.sessionDuration': {$gt: 7200}})"
     },
     {
         "description": "Find recent high credit score CA applications",
-        "query": "targetDb.applications.find({'fields.state': 'CA', 'fields.conModelScore': {$gte: 700}}).limit(10).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.state': 'CA', 'fields.conModelScore': {$gte: 700}}).limit(10).toArray()"
     },
     {
         "description": "Find recent approved iOS applications",
-        "query": "targetDb.applications.find({'fields.operatingSystem': 'iOS', 'fields.conCurrentDecision': 'APPROVED'}).limit(10).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.operatingSystem': 'iOS', 'fields.conCurrentDecision': 'APPROVED'}).limit(10).toArray()"
     },
     {
         "description": "Find recent Samsung Galaxy applications",
-        "query": "targetDb.applications.find({'fields.deviceManufacturer': 'Samsung', 'fields.deviceModel': {$regex: 'Galaxy'}}).limit(10).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.deviceManufacturer': 'Samsung', 'fields.deviceModel': {$regex: 'Galaxy'}}).limit(10).toArray()"
     },
     {
         "description": "Count applications from major cities",
-        "query": "targetDb.applications.countDocuments({'fields.city': {$in: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix']}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.city': {$in: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix']}})"
     },
     {
         "description": "Count applications with ZIP codes starting with 9",
-        "query": "targetDb.applications.countDocuments({'fields.zip': {$regex: '^9'}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.zip': {$regex: '^9'}})"
     },
     {
         "description": "Count applications with ZIP codes starting with 3",
-        "query": "targetDb.applications.countDocuments({'fields.zip': {$regex: '^3'}})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.zip': {$regex: '^3'}})"
     },
     {
         "description": "Count Verizon carrier applications",
-        "query": "targetDb.applications.countDocuments({'fields.mobileCarrier': 'Verizon'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.mobileCarrier': 'Verizon'})"
     },
     {
         "description": "Count AT&T carrier applications",
-        "query": "targetDb.applications.countDocuments({'fields.mobileCarrier': 'AT&T'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.mobileCarrier': 'AT&T'})"
     },
     {
         "description": "Count T-Mobile carrier applications",
-        "query": "targetDb.applications.countDocuments({'fields.mobileCarrier': 'T-Mobile'})"
+        "query": "targetDb.{{collection}}.countDocuments({'fields.mobileCarrier': 'T-Mobile'})"
     },
     {
         "description": "Find recent applications in multiple states",
-        "query": "targetDb.applications.find({'fields.state': {$in: ['CA', 'TX', 'NY']}}).limit(10).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.state': {$in: ['CA', 'TX', 'NY']}}).limit(10).toArray()"
     },
     {
         "description": "Find recent high value applications",
-        "query": "targetDb.applications.find({'fields.conModelScore': {$gte: 800}, 'fields.conCurrentDecision': 'APPROVED'}).limit(10).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.conModelScore': {$gte: 800}, 'fields.conCurrentDecision': 'APPROVED'}).limit(10).toArray()"
     },
     {
         "description": "Find recent mobile gaming applications",
-        "query": "targetDb.applications.find({'fields.appCategory': {$in: ['Gaming', 'Entertainment']}}).limit(10).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.appCategory': {$in: ['Gaming', 'Entertainment']}}).limit(10).toArray()"
     },
     {
         "description": "Count weekend applications",
-        "query": "targetDb.applications.countDocuments({'createdDateTime': {$gte: new Date('2024-11-02'), $lt: new Date('2024-11-04')}})"
+        "query": "targetDb.{{collection}}.countDocuments({'createdDateTime': {$gte: new Date('2024-11-02'), $lt: new Date('2024-11-04')}})"
     },
     {
         "description": "Count business hours applications",
-        "query": "targetDb.applications.countDocuments({'createdDateTime': {$gte: new Date('2024-11-01T09:00:00Z'), $lt: new Date('2024-11-01T17:00:00Z')}})"
+        "query": "targetDb.{{collection}}.countDocuments({'createdDateTime': {$gte: new Date('2024-11-01T09:00:00Z'), $lt: new Date('2024-11-01T17:00:00Z')}})"
     },
     {
         "description": "Find applications with perfect conditions",
-        "query": "targetDb.applications.find({'fields.batteryLevel': {$gte: 90}, 'fields.networkLatency': {$lt: 50}, 'fields.connectionType': '5G'}).limit(5).toArray()"
+        "query": "targetDb.{{collection}}.find({'fields.batteryLevel': {$gte: 90}, 'fields.networkLatency': {$lt: 50}, 'fields.connectionType': '5G'}).limit(5).toArray()"
     }
 ]

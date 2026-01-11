@@ -77,6 +77,9 @@ def execute_queries(config):
         description = q['description']
         query = q['query']
         
+        # Replace collection placeholder with actual collection from config
+        query = query.replace('{{collection}}', config['collection'])
+        
         print(f"🔍 {description}")
         
         try:

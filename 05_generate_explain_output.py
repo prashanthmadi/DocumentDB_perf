@@ -46,6 +46,9 @@ def generate_explain_output(config):
             description = q['description']
             query = q['query']
             
+            # Replace collection placeholder with actual collection from config
+            query = query.replace('{{collection}}', config['collection'])
+            
             print(f"🔍 [{idx}/{len(queries)}] {description}")
             
             out_file.write(f"Query {idx}: {description}\n")
@@ -54,7 +57,7 @@ def generate_explain_output(config):
             
             try:
                 # Wrap query with explain("allPlansExecution")
-                explain_query = query.replace('targetDb.', 'targetDb.')
+                explain_query = query
                 
                 # Handle different query types
                 if '.toArray()' in explain_query:

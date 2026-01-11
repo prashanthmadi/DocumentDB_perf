@@ -93,8 +93,11 @@ def execute_queries(config):
                 match = re.search(r'targetDb\.([\w-]+)\.countDocuments\((.*)\)', run_query)
                 if match:
                     collection = match.group(1)
-                    filter_arg = match.group(2)
-                    run_query = f'targetDb.runCommand({{explain: {{count: "{collection}", query: {filter_arg}}}, verbosity: "executionStats"}})'
+                    filter_arg = match.group(2).strip()
+                    if not filter_arg:
+                        filter_arg = "{}"
+                    # Use aggregate explain to get accurate execution time for countDocuments
+                    run_query = f'targetDb.{collection}.explain("executionStats").aggregate([{{$match: {filter_arg}}}, {{$count: "n"}}])'
 
             # Handle find/aggregate transformations if not already handled as count
             elif '.toArray()' in run_query:
@@ -106,15 +109,18 @@ def execute_queries(config):
             else:
                  run_query = run_query + '.explain("executionStats")'
 
-            js_script = f"""
-            var targetDb = db.getSiblingDB('{config['database']}');
-            var result = {run_query};
-            
+            js_script = f"var targetDb = db.getSiblingDB('{config['database']}');\n"
+            js_script += f"var result = {run_query};\n"
+            js_script += """
             // Extract server-side execution time
             var timeMillis = 0;
-            if (result.executionStats) {{
+            if (result.explainCommandExecTimeMillis) {
+                // Generically captures total time for db.runCommand based explains
+                timeMillis = result.explainCommandExecTimeMillis;
+            } else if (result.executionStats) {
+                // Standard finding/aggregate explain
                 timeMillis = result.executionStats.executionTimeMillis;
-            }}
+            }
             print('SERVER_TIME:' + timeMillis);
             """
             

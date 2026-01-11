@@ -37,3 +37,4 @@ desktop.ini
 *.tmp
 *.temp
 ~$*.xlsx
+data/Query_Execution_output.xlsx

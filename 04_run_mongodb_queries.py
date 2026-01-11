@@ -83,12 +83,39 @@ def execute_queries(config):
         print(f"🔍 {description}")
         
         try:
+            # Transform query to get execution stats
+            run_query = query
+            
+            # Handle countDocuments wrapper first
+            if 'countDocuments(' in run_query:
+                # Extract collection and filter for correct explain command
+                import re
+                match = re.search(r'targetDb\.([\w-]+)\.countDocuments\((.*)\)', run_query)
+                if match:
+                    collection = match.group(1)
+                    filter_arg = match.group(2)
+                    run_query = f'targetDb.runCommand({{explain: {{count: "{collection}", query: {filter_arg}}}, verbosity: "executionStats"}})'
+
+            # Handle find/aggregate transformations if not already handled as count
+            elif '.toArray()' in run_query:
+                run_query = run_query.replace('.toArray()', '.explain("executionStats")')
+            elif '.find(' in run_query:
+                run_query = run_query.rstrip() + '.explain("executionStats")'
+            elif '.aggregate(' in run_query:
+                 run_query = run_query.rstrip() + '.explain("executionStats")'
+            else:
+                 run_query = run_query + '.explain("executionStats")'
+
             js_script = f"""
             var targetDb = db.getSiblingDB('{config['database']}');
-            var startMs = Date.now();
-            var result = {query};
-            var endMs = Date.now();
-            print('EXEC_TIME:' + (endMs - startMs));
+            var result = {run_query};
+            
+            // Extract server-side execution time
+            var timeMillis = 0;
+            if (result.executionStats) {{
+                timeMillis = result.executionStats.executionTimeMillis;
+            }}
+            print('SERVER_TIME:' + timeMillis);
             """
             
             with tempfile.NamedTemporaryFile(mode='w', suffix='.js', delete=False) as f:
@@ -103,14 +130,14 @@ def execute_queries(config):
             if result.returncode == 0:
                 db_time = 0
                 for line in result.stdout.split('\n'):
-                    if line.startswith('EXEC_TIME:'):
+                    if line.startswith('SERVER_TIME:'):
                         db_time = int(line.split(':')[1]) / 1000.0
                         break
                 
-                print(f"   ✅ {db_time:.3f}s")
+                print(f"   ✅ Server Time: {db_time:.3f}s")
                 status = "SUCCESS"
             else:
-                print(f"   ❌ Failed")
+                print(f"   ❌ Failed: {result.stderr}")
                 status = "ERROR"
                 db_time = 0
             

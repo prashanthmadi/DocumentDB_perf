@@ -8,6 +8,7 @@ import subprocess
 import sys
 import json
 import os
+import re
 import tempfile
 from datetime import datetime
 from dotenv import load_dotenv
@@ -24,55 +25,42 @@ def load_config():
     }
 
 
-def get_explain(config, query, explain_mode):
-    """Execute explain query and return result."""
-    explain_query = query
+def transform_to_explain(query, explain_mode):
+    """Transform query to use explain."""
     
-    # Handle different query types
-    # Order matters: check for specific patterns first, then general ones
+    # countDocuments -> db.runCommand with explain
+    if 'countDocuments(' in query:
+        match = re.search(r'targetDb\.([\w-]+)\.countDocuments\((.*)\)', query)
+        if match:
+            collection = match.group(1)
+            filter_arg = match.group(2)
+            return f'targetDb.runCommand({{explain: {{count: "{collection}", query: {filter_arg}}}, verbosity: "{explain_mode}"}})'
     
-    if '.toArray()' in explain_query:
-        # find().toArray() -> find().explain()
-        explain_query = explain_query.replace('.toArray()', f'.explain("{explain_mode}")')
+    # find().toArray() -> find().explain()
+    if '.toArray()' in query:
+        return query.replace('.toArray()', f'.explain("{explain_mode}")')
     
-    elif 'countDocuments(' in explain_query:
-        # countDocuments({filter}) -> explain().countDocuments({filter})
-        explain_query = explain_query.replace('countDocuments(', f'explain("{explain_mode}").countDocuments(')
+    # find() -> find().explain()
+    if '.find(' in query:
+        return query.rstrip() + f'.explain("{explain_mode}")'
     
-    elif 'estimatedDocumentCount()' in explain_query:
-        # estimatedDocumentCount() -> explain().estimatedDocumentCount()
-        explain_query = explain_query.replace('estimatedDocumentCount()', f'explain("{explain_mode}").estimatedDocumentCount()')
+    # aggregate() -> aggregate().explain()
+    if '.aggregate(' in query:
+        return query.rstrip() + f'.explain("{explain_mode}")'
     
-    elif '.count()' in explain_query:
-        # Deprecated count() -> explain().count()
-        explain_query = explain_query.replace('.count()', f'.explain("{explain_mode}").count()')
-    
-    elif '.aggregate(' in explain_query:
-        # aggregate([...]) -> aggregate([...]).explain()
-        # Find the closing parenthesis for aggregate
-        if explain_query.rstrip().endswith(')'):
-            explain_query = explain_query.rstrip() + f'.explain("{explain_mode}")'
-        else:
-            # Has trailing methods - insert before first method after aggregate
-            explain_query = explain_query + f'.explain("{explain_mode}")'
-    
-    elif '.find(' in explain_query:
-        # find({filter}) or find({filter}).sort() etc.
-        # Add explain at the end
-        if explain_query.rstrip().endswith(')'):
-            explain_query = explain_query.rstrip() + f'.explain("{explain_mode}")'
-        else:
-            explain_query = explain_query + f'.explain("{explain_mode}")'
-    
-    else:
-        # Default: append explain at the end
-        explain_query = explain_query + f'.explain("{explain_mode}")'
+    # Default: append explain
+    return query + f'.explain("{explain_mode}")'
+
+
+def execute_explain(config, query, explain_mode):
+    """Execute explain query via mongosh."""
+    explain_query = transform_to_explain(query, explain_mode)
     
     js_script = f"""
-    var targetDb = db.getSiblingDB('{config['database']}');
-    var explainResult = {explain_query};
-    print(JSON.stringify(explainResult, null, 2));
-    """
+var targetDb = db.getSiblingDB('{config['database']}');
+var explainResult = {explain_query};
+print(JSON.stringify(explainResult, null, 2));
+"""
     
     with tempfile.NamedTemporaryFile(mode='w', suffix='.js', delete=False) as f:
         f.write(js_script)
@@ -81,22 +69,16 @@ def get_explain(config, query, explain_mode):
     try:
         result = subprocess.run(
             ['mongosh', config['connection_string'], '--quiet', '--file', script_file],
-            capture_output=True, text=True, timeout=config['timeout']
+            capture_output=True, 
+            text=True, 
+            timeout=config['timeout']
         )
-        os.unlink(script_file)
         return result
-    except subprocess.TimeoutExpired:
+    finally:
         try:
             os.unlink(script_file)
         except:
             pass
-        raise  # Re-raise TimeoutExpired so it can be caught above
-    except Exception:
-        try:
-            os.unlink(script_file)
-        except:
-            pass
-        raise
 
 
 def generate_explain_output(config):
@@ -119,10 +101,7 @@ def generate_explain_output(config):
         
         for idx, q in enumerate(queries, 1):
             description = q['description']
-            query = q['query']
-            
-            # Replace collection placeholder with actual collection from config
-            query = query.replace('{{collection}}', config['collection'])
+            query = q['query'].replace('{{collection}}', config['collection'])
             
             print(f"🔍 [{idx}/{len(queries)}] {description}")
             
@@ -132,32 +111,30 @@ def generate_explain_output(config):
             
             # Try allPlansExecution first
             try:
-                result = get_explain(config, query, 'allPlansExecution')
+                result = execute_explain(config, query, 'allPlansExecution')
                 
                 if result.returncode == 0:
                     out_file.write(f"Explain Output (mode: allPlansExecution):\n")
                     out_file.write(result.stdout)
                     out_file.write("\n")
                     print(f"   ✅ Captured (allPlansExecution)")
-                    continue  # Skip to next query
+                else:
+                    # Check if timeout, otherwise show error
+                    if 'timeout' in result.stderr.lower():
+                        raise subprocess.TimeoutExpired(cmd=None, timeout=config['timeout'])
                     
-                # Check if it's a timeout error
-                if 'command timeout' in result.stderr or 'timed out' in result.stderr.lower():
-                    raise subprocess.TimeoutExpired(cmd=None, timeout=config['timeout'])
-                    
-                # Other errors
-                out_file.write("ERROR:\n")
-                out_file.write(result.stderr)
-                out_file.write("\n")
-                print(f"   ❌ Failed")
+                    out_file.write("ERROR:\n")
+                    out_file.write(result.stderr)
+                    out_file.write("\n")
+                    print(f"   ❌ Failed")
                     
             except subprocess.TimeoutExpired:
-                # Timeout (server or client) - fallback to executionStats
-                out_file.write(f"Note: allPlansExecution timed out, using executionStats instead...\n\n")
-                print(f"   ⏱️ Timeout on allPlansExecution, falling back to executionStats...")
+                # Fallback to executionStats
+                out_file.write(f"Note: allPlansExecution timed out, using executionStats...\n\n")
+                print(f"   ⏱️ Timeout, falling back to executionStats...")
                 
                 try:
-                    result = get_explain(config, query, 'executionStats')
+                    result = execute_explain(config, query, 'executionStats')
                     if result.returncode == 0:
                         out_file.write(f"Explain Output (mode: executionStats):\n")
                         out_file.write(result.stdout)
@@ -179,7 +156,6 @@ def generate_explain_output(config):
             out_file.write("\n" + "=" * 80 + "\n\n")
     
     print(f"\n💾 Explain output saved to: {output_file}")
-    return True
 
 
 def main():
@@ -196,7 +172,6 @@ def main():
         return 1
     
     generate_explain_output(config)
-    
     print("=" * 60)
     return 0
 

@@ -20,7 +20,7 @@ def load_config():
         'database': os.getenv('MONGODB_DATABASE', 'mobile_apps'),
         'collection': os.getenv('MONGODB_COLLECTION', 'applications'),
         'queries_file': os.getenv('QUERIES_FILE', 'data/mongodb_queries.json'),
-        'timeout': int(os.getenv('TIMEOUT_SECONDS', '300'))
+        'timeout': int(os.getenv('EXPLAIN_TIMEOUT_SECONDS', '300'))
     }
 
 

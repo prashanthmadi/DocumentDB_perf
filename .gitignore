@@ -15,6 +15,7 @@ env/
 
 # Output Files
 data/Query_Execution_output.csv
+data/*.txt
 
 # Jupyter Notebook
 .ipynb_checkpoints

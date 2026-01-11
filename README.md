@@ -245,6 +245,22 @@ The notebooks automatically adjust partitions and batch sizes based on record co
 **Module Import Errors**
 - Install dependencies: `pip install -r requirements.txt`
 
+## 📊 Generate Explain Output
+
+To generate MongoDB explain plans with `allPlansExecution` for all queries:
+
+```bash
+python 05_generate_explain_output.py
+```
+
+This will:
+- Read queries from `data/mongodb_queries.json`
+- Execute `.explain("allPlansExecution")` for each query
+- Save output to `data/explain_out_<epoch>.txt`
+- Include query descriptions, original queries, and full explain plans
+
+Useful for sharing detailed execution plans with engineering teams.
+
 ## 🎨 Customization Pattern
 
 To adapt this for your own data structure:

@@ -36,11 +36,29 @@ The goal is to create a reusable performance testing framework where:
   - Executes index creation via mongosh
   - Reports creation status and timing
 
-#### 04. Query Execution
-- **`04_run_mongodb_queries.py`** - Execute queries and measure performance
+#### 04. Query Execution (Server-Side Timing)
+- **`04_query_performance_server_time.py`** - Execute queries and measure **server-side execution time**
+  - Uses `explain("executionStats")` to capture actual database engine time
   - Reads queries from `data/mongodb_queries.json`
-  - Measures execution time for each query
-  - Outputs description and timing summary
+  - **Excludes network latency** - pure database performance
+  - Outputs timing to CSV with column: `collectionName_epochTimestamp`
+
+#### 05. Explain Plan Generation
+- **`05_generate_explain_plans.py`** - Generate detailed query execution plans
+  - Captures full explain output for query analysis
+  - Uses `allPlansExecution` mode (falls back to `executionStats` on timeout)
+  - Outputs to `data/explain_out_*.txt`
+
+#### 06. Query Execution (Round-Trip Timing)
+- **`06_query_performance_client_time.py`** - Execute queries and measure **end-to-end time**
+  - Measures wall-clock time (client perspective)
+  - **Includes network latency** - real-world performance
+  - Outputs timing to CSV with column: `collectionName_direct_epochTimestamp`
+
+> **⚡ Performance Timing Methods:**
+> - **Script 04**: Server-side execution time from `executionStats` (database engine only)
+> - **Script 06**: Round-trip time including network latency (client experience)
+> - Use both to understand where time is spent: database vs. network
 
 ### Data Files
 - **`data/mongodb_indexes.json`** - Index definitions in JSON format
@@ -147,6 +165,25 @@ db.applications_sharded.getShardDistribution();
    ```
 
 ### Step 4: Run Performance Tests (Local Environment)
+
+#### Option A: Server-Side Timing (Script 04)
+Measures pure database execution time using explain stats:
+```bash
+python 04_query_performance_server_time.py
+```
+
+#### Option B: Round-Trip Timing (Script 06)
+Measures end-to-end time including network latency:
+```bash
+python 06_query_performance_client_time.py
+```
+
+#### Option C: Generate Explain Plans (Script 05)
+Captures detailed execution plans for query analysis:
+```bash
+python 05_generate_explain_plans.py
+```
+
 1. Edit `data/mongodb_queries.json` to define your test queries:
    ```json
    [
@@ -156,14 +193,10 @@ db.applications_sharded.getShardDistribution();
      }
    ]
    ```
-2. Run the script:
-   ```bash
-   python 04_run_mongodb_queries.py
-   ```
-3. Review results:
+2. Review results:
    - Console output shows execution time for each query
    - Results saved to `data/Query_Execution_output.csv`
-   - Each run adds a new column: `collectionName_epochTimestamp`
+   - Each run adds a new column with timing data
    - Compare performance across different runs and collections
 
 ## 📊 Data Schema

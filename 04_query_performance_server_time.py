@@ -112,15 +112,19 @@ def execute_queries(config):
             js_script = f"var targetDb = db.getSiblingDB('{config['database']}');\n"
             js_script += f"var result = {run_query};\n"
             js_script += """
-            // Extract server-side execution time
             var timeMillis = 0;
+            
+            // Try multiple paths to find execution time
             if (result.explainCommandExecTimeMillis) {
-                // Generically captures total time for db.runCommand based explains
                 timeMillis = result.explainCommandExecTimeMillis;
-            } else if (result.executionStats) {
-                // Standard finding/aggregate explain
+            } else if (result.executionStats && result.executionStats.executionTimeMillis) {
                 timeMillis = result.executionStats.executionTimeMillis;
+            } else if (result.executionStats && result.executionStats.executionStages && result.executionStats.executionStages.executionTimeMillis) {
+                timeMillis = result.executionStats.executionStages.executionTimeMillis;
+            } else if (result.stages && result.stages.length > 0 && result.stages[0]['$cursor'] && result.stages[0]['$cursor'].executionStats) {
+                timeMillis = result.stages[0]['$cursor'].executionStats.executionTimeMillis;
             }
+            
             print('SERVER_TIME:' + timeMillis);
             """
             

@@ -14,7 +14,7 @@ env/
 .env.local
 
 # Output Files
-data/Query_Execution_output.csv
+data/*.csv
 data/*.txt
 
 # Jupyter Notebook

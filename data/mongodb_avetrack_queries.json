@@ -1,0 +1,317 @@
+[
+    {
+        "id": "Q001",
+        "description": "Find all RUN2 ELIGIBLE applications (New/Add-Line) with BAN",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}, {'$or': [{'fields.run': 'RUN2'}, {'fields.run': 'MITIGATIONRESULT'}]}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'Add-Line', 'NEW', 'ADD-LINE']}}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}, {'fields.common.ban': '337201967167'}]}).limit(100).toArray()",
+        "category": "eligible_records",
+        "priority": "very_high",
+        "indexes_needed": ["idx_lastUpdate_run", "idx_casApplicationId", "idx_orderType", "idx_common_ban"]
+    },
+    {
+        "id": "Q002",
+        "description": "Find all RUN2 ELIGIBLE with authenticID data",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'$or': [{'fields.run': 'RUN2'}, {'fields.run': 'MITIGATIONRESULT'}]}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'Add-Line', 'NEW', 'ADD-LINE']}}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}, {'fields.authenticId.TransactionId': {'$exists': true}}, {'fields.authenticId.TransactionDate': {'$exists': true}}, {'fields.authenticId.DocumentNumber': {'$exists': true}}]}).limit(100).toArray()",
+        "category": "eligible_authenticid",
+        "priority": "very_high",
+        "indexes_needed": ["idx_complex_authenticId", "idx_authenticId_transactionId", "idx_authenticId_docNumber"]
+    },
+    {
+        "id": "Q003",
+        "description": "Find RUN2 ELIGIBLE with authenticID ActionCode filtering",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'$or': [{'fields.run': 'RUN2'}, {'fields.run': 'MITIGATIONRESULT'}]}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'Add-Line']}}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}, {'fields.authenticId.ActionCodes.code': {'$ne': 99}}]}).limit(100).toArray()",
+        "category": "eligible_authenticid",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run", "idx_authenticId_actionCodes", "idx_casApplicationId"]
+    },
+    {
+        "id": "Q004",
+        "description": "Find all authenticIdApplication records by date",
+        "collection": "authenticIdApplication",
+        "query": "targetDb.{{collection}}.find({'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}).limit(1000).toArray()",
+        "category": "authenticid",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdateDateTime"]
+    },
+    {
+        "id": "Q005",
+        "description": "Find CAPM applications by date",
+        "collection": "capmApplication",
+        "query": "targetDb.{{collection}}.find({'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}).limit(1000).toArray()",
+        "category": "capm",
+        "priority": "medium",
+        "indexes_needed": ["idx_lastUpdateDateTime"]
+    },
+    {
+        "id": "Q006",
+        "description": "Find RUN3 CARE ELIGIBLE (New/Add-Line)",
+        "collection": "careApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'$or': [{'fields.run': 'RUN3'}, {'fields.run': 'MITIGATIONRESULT'}]}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'NEW', 'Add-Line', 'ADD-LINE']}}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}]}).limit(100).toArray()",
+        "category": "care_eligible",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run", "idx_casApplicationId", "idx_orderType"]
+    },
+    {
+        "id": "Q007",
+        "description": "Find RUN2 CARE BYOP applications with IMEI",
+        "collection": "careApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'$or': [{'fields.run': 'RUN2'}, {'fields.run': 'MITIGATIONRESULT'}]}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'NEW']}}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}, {'fields.checkOutList.orderList.itemDetailList.transactionType': 'BYOP'}, {'fields.checkOutList.orderList.itemDetailList.imei': {'$exists': true, '$gt': ''}}]}).limit(100).toArray()",
+        "category": "care_byop",
+        "priority": "high",
+        "indexes_needed": ["idx_complex_care_byop", "idx_transactionType_imei"]
+    },
+    {
+        "id": "Q008",
+        "description": "Find care model cases by rule numbers (212, 230)",
+        "collection": "msAvertackCareCase",
+        "query": "targetDb.{{collection}}.find({'$and': [{'createdDateTime': {'$gte': ISODate('2024-01-01')}}, {'rules': {'$in': ['212', '230']}}, {'caseApplicationRecordList.applicationRecord.fields.checkOutList.orderList.casApplicationId': {'$exists': true}}, {'gfmsReferralStr': {'$gt': ''}}]}).limit(100).toArray()",
+        "category": "case_rules",
+        "priority": "high",
+        "indexes_needed": ["idx_createdDateTime", "idx_case_rules", "idx_case_gfmsReferral"]
+    },
+    {
+        "id": "Q009",
+        "description": "Find CARE applications with fraud alert (panic button)",
+        "collection": "careApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'fields.fraudAlert.isFraud': true}]}).limit(100).toArray()",
+        "category": "fraud_detection",
+        "priority": "very_high",
+        "indexes_needed": ["idx_lastUpdateDateTime", "idx_fraudAlert_isFraud"]
+    },
+    {
+        "id": "Q010",
+        "description": "Find avertack cases by creation date",
+        "collection": "avertackCase",
+        "query": "targetDb.{{collection}}.find({'createdDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}).limit(1000).toArray()",
+        "category": "case_lookup",
+        "priority": "high",
+        "indexes_needed": ["idx_createdDateTime"]
+    },
+    {
+        "id": "Q011",
+        "description": "Find avertack cases with case notes",
+        "collection": "avertackCase",
+        "query": "targetDb.{{collection}}.find({'$and': [{'createdDateTime': {'$gte': ISODate('2024-01-01')}}, {'caseNoteList': {'$exists': true}}]}).limit(100).toArray()",
+        "category": "case_notes",
+        "priority": "medium",
+        "indexes_needed": ["idx_createdDateTime", "idx_case_caseNotes"]
+    },
+    {
+        "id": "Q012",
+        "description": "Find CIR authorized user changes",
+        "collection": "cirAccountDetailApplicationHistory",
+        "query": "targetDb.{{collection}}.find({'$and': [{'createdDateTime': {'$gte': ISODate('2024-01-01')}}, {'field': {'$exists': true}}]}).limit(100).toArray()",
+        "category": "cir_changes",
+        "priority": "low",
+        "indexes_needed": ["idx_createdDateTime", "idx_cir_field"]
+    },
+    {
+        "id": "Q013",
+        "description": "Find CIR authorizedUserName changes",
+        "collection": "cirAccountDetailApplicationHistory",
+        "query": "targetDb.{{collection}}.find({'$and': [{'createdDateTime': {'$gte': ISODate('2024-01-01')}}, {'field': 'authorizedUserName'}]}).limit(100).toArray()",
+        "category": "cir_auth_user",
+        "priority": "low",
+        "indexes_needed": ["idx_createdDateTime", "idx_cir_field"]
+    },
+    {
+        "id": "Q014",
+        "description": "Find digital cases with hotlist rules (408, 409) - regex mitigation",
+        "collection": "msAvertackDigitalCase",
+        "query": "targetDb.{{collection}}.find({'$and': [{'createdDateTime': {'$gte': ISODate('2024-01-01')}}, {'rules': {'$in': ['78']}}, {'mitigationStr': {'$regex': '.*40[89].*'}}]}).limit(100).toArray()",
+        "category": "digital_fraud",
+        "priority": "high",
+        "indexes_needed": ["idx_createdDateTime", "idx_case_rules", "idx_case_mitigationStr"]
+    },
+    {
+        "id": "Q015",
+        "description": "Find RUN3 digital NEW apps with CAS and IP",
+        "collection": "digitalApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'$or': [{'fields.run': 'RUN3'}, {'fields.run': 'MITIGATIONRESULT'}]}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': ''}}, {'fields.digital.endUserIpAddress': {'$exists': true, '$gt': ''}}]}).limit(100).toArray()",
+        "category": "digital_eligible",
+        "priority": "high",
+        "indexes_needed": ["idx_complex_digital_cas", "idx_digital_endUserIp"]
+    },
+    {
+        "id": "Q016",
+        "description": "Find RUN2 digital Upgrade applications",
+        "collection": "digitalApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'createdDateTime': {'$gte': ISODate('2024-01-01')}}, {'fields.run': 'RUN2'}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['UPGRADE', 'UP', 'Upgrade']}}]}).limit(100).toArray()",
+        "category": "digital_upgrade",
+        "priority": "medium",
+        "indexes_needed": ["idx_createdDateTime", "idx_run", "idx_orderType"]
+    },
+    {
+        "id": "Q017",
+        "description": "Find digital apps with specific CC card name",
+        "collection": "digitalApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'fields.run': 'RUN3'}, {'fields.paymentList.cardFullNameNormalized': 'JOHNBRIEN'}]}).limit(100).toArray()",
+        "category": "payment_fraud",
+        "priority": "medium",
+        "indexes_needed": ["idx_lastUpdate_run", "idx_payment_cardName"]
+    },
+    {
+        "id": "Q018",
+        "description": "Find equipment applications by date",
+        "collection": "equipmentApplication",
+        "query": "targetDb.{{collection}}.find({'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}).limit(1000).toArray()",
+        "category": "equipment",
+        "priority": "medium",
+        "indexes_needed": ["idx_lastUpdateDateTime"]
+    },
+    {
+        "id": "Q019",
+        "description": "Count RUN2 applications by date range",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.countDocuments({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}, {'fields.run': 'RUN2'}]})",
+        "category": "counts",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run"]
+    },
+    {
+        "id": "Q020",
+        "description": "Count RUN3 applications by date range",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.countDocuments({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}, {'fields.run': 'RUN3'}]})",
+        "category": "counts",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run"]
+    },
+    {
+        "id": "Q021",
+        "description": "Count RUN4 applications by date range",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.countDocuments({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}, {'fields.run': 'RUN4'}]})",
+        "category": "counts",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run"]
+    },
+    {
+        "id": "Q022",
+        "description": "Count MITIGATIONRESULT applications",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.countDocuments({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}, {'fields.run': 'MITIGATIONRESULT'}]})",
+        "category": "counts",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run"]
+    },
+    {
+        "id": "Q023",
+        "description": "Find applications with New order type",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'NEW']}}).limit(100).toArray()",
+        "category": "order_type",
+        "priority": "medium",
+        "indexes_needed": ["idx_orderType"]
+    },
+    {
+        "id": "Q024",
+        "description": "Find applications with Add-Line order type",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['Add-Line', 'ADD-LINE', 'AL']}}).limit(100).toArray()",
+        "category": "order_type",
+        "priority": "medium",
+        "indexes_needed": ["idx_orderType"]
+    },
+    {
+        "id": "Q025",
+        "description": "Find applications with Upgrade order type",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['Upgrade', 'UPGRADE', 'UP']}}).limit(100).toArray()",
+        "category": "order_type",
+        "priority": "medium",
+        "indexes_needed": ["idx_orderType"]
+    },
+    {
+        "id": "Q026",
+        "description": "Find applications by casApplicationId lookup",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.checkOutList.orderList.casApplicationId': '123456789012'}).limit(10).toArray()",
+        "category": "lookup",
+        "priority": "very_high",
+        "indexes_needed": ["idx_casApplicationId"]
+    },
+    {
+        "id": "Q027",
+        "description": "Find applications with casApplicationId existence",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}).limit(100).toArray()",
+        "category": "lookup",
+        "priority": "high",
+        "indexes_needed": ["idx_casApplicationId"]
+    },
+    {
+        "id": "Q028",
+        "description": "Find applications by common BAN",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.common.ban': '337201967167'}).limit(50).toArray()",
+        "category": "lookup",
+        "priority": "very_high",
+        "indexes_needed": ["idx_common_ban"]
+    },
+    {
+        "id": "Q029",
+        "description": "Find applications by wireless BAN",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'fields.tGuard.wirelessBAN': '444028277679'}).limit(50).toArray()",
+        "category": "lookup",
+        "priority": "high",
+        "indexes_needed": ["idx_wirelessBAN"]
+    },
+    {
+        "id": "Q030",
+        "description": "Aggregate count by run type",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.aggregate([{'$match': {'lastUpdateDateTime': {'$gte': ISODate('2024-01-01'), '$lt': ISODate('2024-01-31')}}}, {'$group': {'_id': '$fields.run', 'count': {'$sum': 1}}}, {'$sort': {'count': -1}}]).toArray()",
+        "category": "aggregation",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdateDateTime", "idx_run"]
+    },
+    {
+        "id": "Q031",
+        "description": "Aggregate count by order type",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.aggregate([{'$match': {'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}}, {'$unwind': '$fields.checkOutList'}, {'$unwind': '$fields.checkOutList.orderList'}, {'$unwind': '$fields.checkOutList.orderList.itemDetailList'}, {'$group': {'_id': '$fields.checkOutList.orderList.itemDetailList.orderType', 'count': {'$sum': 1}}}, {'$sort': {'count': -1}}]).toArray()",
+        "category": "aggregation",
+        "priority": "medium",
+        "indexes_needed": ["idx_lastUpdateDateTime", "idx_orderType"]
+    },
+    {
+        "id": "Q032",
+        "description": "Aggregate count by channel",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.aggregate([{'$match': {'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}}, {'$group': {'_id': '$fields.channel', 'count': {'$sum': 1}}}, {'$sort': {'count': -1}}]).toArray()",
+        "category": "aggregation",
+        "priority": "medium",
+        "indexes_needed": ["idx_lastUpdateDateTime", "idx_channel"]
+    },
+    {
+        "id": "Q033",
+        "description": "Recent applications - Last 7 days",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'lastUpdateDateTime': {'$gte': ISODate('2024-01-17'), '$lt': ISODate('2024-01-24')}}).sort({'lastUpdateDateTime': -1}).limit(1000).toArray()",
+        "category": "time_series",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdateDateTime"]
+    },
+    {
+        "id": "Q034",
+        "description": "Recent RUN2 - Last 24 hours",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-23')}}, {'fields.run': 'RUN2'}]}).sort({'lastUpdateDateTime': -1}).limit(500).toArray()",
+        "category": "time_series",
+        "priority": "high",
+        "indexes_needed": ["idx_lastUpdate_run"]
+    },
+    {
+        "id": "Q035",
+        "description": "Complex - RUN2 eligible with BAN and authenticID",
+        "collection": "retailApplication",
+        "query": "targetDb.{{collection}}.find({'$and': [{'lastUpdateDateTime': {'$gte': ISODate('2024-01-01')}}, {'fields.run': 'RUN2'}, {'fields.checkOutList.orderList.itemDetailList.orderType': {'$in': ['New', 'Add-Line']}}, {'fields.checkOutList.orderList.casApplicationId': {'$exists': true, '$gt': '0'}}, {'fields.common.ban': {'$exists': true}}, {'fields.authenticId.TransactionId': {'$exists': true}}]}).limit(50).toArray()",
+        "category": "complex",
+        "priority": "very_high",
+        "indexes_needed": ["idx_complex_eligible_run2", "idx_complex_authenticId", "idx_common_ban"]
+    }
+]

@@ -1,0 +1,235 @@
+[
+    {
+        "name": "idx_lastUpdateDateTime",
+        "keys": {"lastUpdateDateTime": -1},
+        "description": "PRIMARY - Almost all queries filter by date range first. Descending for recent-first ordering.",
+        "usage_frequency": "very_high",
+        "query_pattern": "All date-range queries"
+    },
+    {
+        "name": "idx_lastUpdate_run",
+        "keys": {"lastUpdateDateTime": -1, "fields.run": 1},
+        "description": "COMPOUND - Most common pattern in queries.txt: date range + run type (RUN2/RUN3/RUN4/MITIGATIONRESULT)",
+        "usage_frequency": "very_high",
+        "query_pattern": "RUN2/RUN3/RUN4 ELIGIBLE queries"
+    },
+    {
+        "name": "idx_run",
+        "keys": {"fields.run": 1},
+        "description": "Filter by run type - PARTITION KEY CANDIDATE. Used in nearly every query.",
+        "usage_frequency": "very_high",
+        "query_pattern": "Run type filtering"
+    },
+    {
+        "name": "idx_casApplicationId",
+        "keys": {"fields.checkOutList.orderList.casApplicationId": 1},
+        "description": "CRITICAL - Application ID lookup and existence checks. Appears in most eligible record queries.",
+        "usage_frequency": "very_high",
+        "query_pattern": "casApplicationId lookups and $exists checks"
+    },
+    {
+        "name": "idx_orderType",
+        "keys": {"fields.checkOutList.orderList.itemDetailList.orderType": 1},
+        "description": "Order type filtering (New, Add-Line, Upgrade, BYOP) - used in almost all eligible queries",
+        "usage_frequency": "very_high",
+        "query_pattern": "New/Add-Line/Upgrade filtering"
+    },
+    {
+        "name": "idx_common_ban",
+        "keys": {"fields.common.ban": 1},
+        "description": "Common BAN lookup - frequently used identifier in queries",
+        "usage_frequency": "very_high",
+        "query_pattern": "BAN-based lookups"
+    },
+    {
+        "name": "idx_authenticId_transactionId",
+        "keys": {"fields.authenticId.TransactionId": 1},
+        "description": "AuthenticID transaction lookup - used in authenticID queries",
+        "usage_frequency": "high",
+        "query_pattern": "AuthenticID transaction lookups"
+    },
+    {
+        "name": "idx_authenticId_docNumber",
+        "keys": {"fields.authenticId.DocumentNumber": 1},
+        "description": "AuthenticID document number - used for ID verification queries",
+        "usage_frequency": "high",
+        "query_pattern": "Document number lookups"
+    },
+    {
+        "name": "idx_authenticId_actionCodes",
+        "keys": {"fields.authenticId.ActionCodes.code": 1},
+        "description": "AuthenticID action codes filtering ($ne 99 patterns)",
+        "usage_frequency": "medium",
+        "query_pattern": "Action code filtering"
+    },
+    {
+        "name": "idx_fraudAlert_isFraud",
+        "keys": {"fields.fraudAlert.isFraud": 1},
+        "description": "Fraud alert flag - used to find applications with panic button pressed",
+        "usage_frequency": "high",
+        "query_pattern": "High-risk fraud detection"
+    },
+    {
+        "name": "idx_transactionType_imei",
+        "keys": {
+            "fields.checkOutList.orderList.itemDetailList.transactionType": 1,
+            "fields.checkOutList.orderList.itemDetailList.imei": 1
+        },
+        "description": "COMPOUND - BYOP transaction filtering with IMEI validation",
+        "usage_frequency": "medium",
+        "query_pattern": "BYOP queries with IMEI"
+    },
+    {
+        "name": "idx_digital_endUserIp",
+        "keys": {"fields.digital.endUserIpAddress": 1},
+        "description": "Digital channel IP address tracking",
+        "usage_frequency": "medium",
+        "query_pattern": "Digital application IP filtering"
+    },
+    {
+        "name": "idx_payment_cardName",
+        "keys": {"fields.paymentList.cardFullNameNormalized": 1},
+        "description": "Credit card name lookup - used for payment fraud detection",
+        "usage_frequency": "medium",
+        "query_pattern": "CC card name queries"
+    },
+    {
+        "name": "idx_createdDateTime",
+        "keys": {"createdDateTime": -1},
+        "description": "Case creation date - used in msAvertackCareCase and avertackCase queries",
+        "usage_frequency": "high",
+        "query_pattern": "Case queries by creation date"
+    },
+    {
+        "name": "idx_case_rules",
+        "keys": {"rules": 1},
+        "description": "Case rules filtering (212, 230, 78, etc.) - used in case queries",
+        "usage_frequency": "high",
+        "query_pattern": "Rule-based case filtering"
+    },
+    {
+        "name": "idx_case_gfmsReferral",
+        "keys": {"gfmsReferralStr": 1},
+        "description": "GFMS referral string existence checks",
+        "usage_frequency": "medium",
+        "query_pattern": "GFMS referral filtering"
+    },
+    {
+        "name": "idx_case_caseNotes",
+        "keys": {"caseNoteList": 1},
+        "description": "Case notes existence check",
+        "usage_frequency": "low",
+        "query_pattern": "Agent case notes queries"
+    },
+    {
+        "name": "idx_case_mitigationStr",
+        "keys": {"mitigationStr": 1},
+        "description": "Mitigation string for regex pattern matching (40[89] patterns)",
+        "usage_frequency": "medium",
+        "query_pattern": "Mitigation regex queries"
+    },
+    {
+        "name": "idx_cir_field",
+        "keys": {"field": 1},
+        "description": "CIR account detail field changes (authorizedUserName)",
+        "usage_frequency": "low",
+        "query_pattern": "CIR authorized user queries"
+    },
+    {
+        "name": "idx_cir_ban",
+        "keys": {"ban": 1},
+        "description": "CIR BAN lookup",
+        "usage_frequency": "low",
+        "query_pattern": "CIR BAN-based queries"
+    },
+    {
+        "name": "idx_capm_postedAccount",
+        "keys": {"fields.postedAccountNumber": 1},
+        "description": "CAPM posted account number",
+        "usage_frequency": "low",
+        "query_pattern": "CAPM account queries"
+    },
+    {
+        "name": "idx_capm_zip",
+        "keys": {"fields.zip": 1},
+        "description": "CAPM ZIP code filtering",
+        "usage_frequency": "low",
+        "query_pattern": "CAPM geographic queries"
+    },
+    {
+        "name": "idx_complex_eligible_run2",
+        "keys": {
+            "lastUpdateDateTime": -1,
+            "fields.run": 1,
+            "fields.checkOutList.orderList.itemDetailList.orderType": 1,
+            "fields.checkOutList.orderList.casApplicationId": 1
+        },
+        "description": "COMPOUND - Complete RUN2 ELIGIBLE pattern from queries.txt",
+        "usage_frequency": "very_high",
+        "query_pattern": "Main eligible records query"
+    },
+    {
+        "name": "idx_complex_authenticId",
+        "keys": {
+            "lastUpdateDateTime": -1,
+            "fields.run": 1,
+            "fields.authenticId.TransactionId": 1,
+            "fields.authenticId.DocumentNumber": 1
+        },
+        "description": "COMPOUND - AuthenticID eligible pattern",
+        "usage_frequency": "high",
+        "query_pattern": "AuthenticID eligible queries"
+    },
+    {
+        "name": "idx_complex_care_byop",
+        "keys": {
+            "lastUpdateDateTime": -1,
+            "fields.run": 1,
+            "fields.checkOutList.orderList.itemDetailList.transactionType": 1,
+            "fields.checkOutList.orderList.itemDetailList.imei": 1
+        },
+        "description": "COMPOUND - CARE BYOP pattern with IMEI",
+        "usage_frequency": "medium",
+        "query_pattern": "CARE BYOP queries"
+    },
+    {
+        "name": "idx_complex_digital_cas",
+        "keys": {
+            "lastUpdateDateTime": -1,
+            "fields.run": 1,
+            "fields.checkOutList.orderList.casApplicationId": 1,
+            "fields.digital.endUserIpAddress": 1
+        },
+        "description": "COMPOUND - Digital eligible with IP tracking",
+        "usage_frequency": "high",
+        "query_pattern": "Digital application eligible queries"
+    },
+    {
+        "name": "idx_wirelessBAN",
+        "keys": {"fields.tGuard.wirelessBAN": 1},
+        "description": "Wireless BAN lookup - used in various lookup queries",
+        "usage_frequency": "medium",
+        "query_pattern": "tGuard BAN lookups"
+    },
+    {
+        "name": "idx_sessionId",
+        "keys": {"fields.sessionId": 1},
+        "description": "Session ID tracking",
+        "usage_frequency": "low",
+        "query_pattern": "Session-based queries"
+    },
+    {
+        "name": "idx_channel",
+        "keys": {"fields.channel": 1},
+        "description": "Channel filtering (OCEDIRECT, RETAIL, CARE)",
+        "usage_frequency": "medium",
+        "query_pattern": "Channel-based queries"
+    },
+    {
+        "name": "idx_mitigationRule",
+        "keys": {"fields.mitigationRule": 1},
+        "description": "Mitigation rule filtering",
+        "usage_frequency": "medium",
+        "query_pattern": "Mitigation rule queries"
+    }
+]

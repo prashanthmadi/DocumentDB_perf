@@ -1,0 +1,2344 @@
+{
+    "_id" : "41DC3AE3-924B-40AC-BD87-341876E3CD9641705882688360",
+    "applicationTimeStamp" : "2024-01-21T18:18:08.360-06:00",
+    "createdDateTime" : "2024-01-21T18:18:10.819-06:00",
+    "lastUpdateDateTime" : "2024-01-22T19:00:59.291-06:00",
+    "serviceId" : "ocedirect",
+    "version" : "6DA1F984-8DAA-464F-B0B5-BC85B812D5C8",
+    "fields" : {
+        "sessionId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+        "sessionAppName" : "IDSE",
+        "tGuard" : {
+            "guid" : "229568015",
+            "authType" : "PASSWORD",
+            "userId" : "TESTUSERCA1187@HOTMAIL.COM",
+            "slId" : "TESTUSER1187@HOTMAIL.COM@SLID.DUM",
+            "wirelessBAN" : "444028277679",
+            "tatsTokenId" : "7328D4C0C866160A50D88C7F15CDB1654E79AEF5",
+            "rUser" : "TESTUSER1187@HOTMAIL.COM",
+            "amrMethods" : [ 
+                {
+                    "amrCode" : "EDT"
+                }, 
+                {
+                    "amrCode" : "COTP"
+                }
+            ]
+        },
+        "digital" : {
+            "status" : "TRUE",
+            "appId" : "GLKEX/S070TOC5GRMCH2WPNHEHK=",
+            "appName" : "IDP",
+            "endUserIpAddress" : "192.168.1.1",
+            "userAgent" : "AHC/1.0",
+            "ipAddress" : "192.168.1.1"
+        },
+        "channel" : "OCEDIRECT",
+        "timestamp" : "2024-01-22T00:15:56.528Z",
+        "commonServicesConversationId" : "330668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+        "icci" : {
+            "emailAddress" : "testuser1187@hotmail.com",
+            "subscriber" : {
+                "ctnList" : [ 
+                    "8895339748", 
+                    "8169496473"
+                ]
+            },
+            "emailNormalization" : "testuser1187@hotmail.com",
+            "emailDomain" : "hotmail.com"
+        },
+        "avertackTransactionId" : "msAvertack-02693282-251B-46E8-BB4E-48A3D4B9734F",
+        "emailNormalization" : "testuser1187@hotmail.com",
+        "subscriber" : {},
+        "common" : {
+            "authenticId" : {
+                "accountCode" : "777",
+                "state" : [ 
+                    "TX"
+                ],
+                "enablePostback" : true
+            }
+        },
+        "msCache" : [],
+        "run" : "RUN4",
+        "commonServiceSessionId" : "330668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+        "sessionIdSource" : "IDSESessionId",
+        "accountInfoList" : [],
+        "checkOutList" : [ 
+            {
+                "run2CheckOutListIndex" : 0,
+                "account" : {
+                    "sequenceNumber" : "1",
+                    "market" : "AUS",
+                    "profileType" : "authuser",
+                    "wirelessCustomerType" : "CONSUMER",
+                    "wirelessBan" : "444028277679",
+                    "paymentArrangement" : "POSTPAID",
+                    "primaryCTN" : "8795318612",
+                    "contactDetails" : {
+                        "firstName" : "testuser",
+                        "lastName" : "test",
+                        "primaryPhone" : "8895339748",
+                        "emailAddress" : "TESTUSER1187@HOTMAIL.COM"
+                    },
+                    "authorizedUserList" : []
+                },
+                "creditCheck" : {
+                    "applicationApprovalDate" : "2023-12-01T00:00:00.000Z",
+                    "applicationExpiresDate" : "2023-12-04T00:00:00.000Z",
+                    "applicationNumber" : "881207037834",
+                    "creditCheckRanIndicator" : true,
+                    "creditClass" : "WLS_CC_A1",
+                    "creditStatus" : "APPROVED",
+                    "numberApprovedLines" : 18,
+                    "numberLinesRequired" : 0,
+                    "reasonCode" : "EA"
+                },
+                "orderList" : [ 
+                    {
+                        "casApplicationId" : "401207037834",
+                        "orderId" : "66-66666666666611",
+                        "anonymousSale" : "FALSE",
+                        "totalAmount" : 1199.99,
+                        "dueToday" : 0.0,
+                        "monthlyDue" : 79.33,
+                        "itemDetailList" : [ 
+                            {
+                                "portIn" : false,
+                                "itemNumber" : "1",
+                                "itemType" : "COLLATERAL",
+                                "orderType" : "AL",
+                                "transactionType" : "B",
+                                "fulfillmentType" : "DF",
+                                "planType" : [],
+                                "imei" : "",
+                                "managerOverride" : []
+                            }, 
+                            {
+                                "portIn" : false,
+                                "itemNumber" : "2",
+                                "ctn" : "",
+                                "itemType" : "ESIM",
+                                "orderType" : "AL",
+                                "customerOwnedDeviceActivation" : false,
+                                "transactionType" : "B",
+                                "fulfillmentType" : "DF",
+                                "sameDayDelivery" : false,
+                                "planType" : [],
+                                "description" : "APPLE IPHONE 15 PRO MAX - 256GB - BLUE TITANIUM",
+                                "make" : "APPLE",
+                                "model" : "IPHONE 15 PRO MAX",
+                                "imei" : "",
+                                "managerOverride" : []
+                            }, 
+                            {
+                                "portIn" : false,
+                                "itemNumber" : "3",
+                                "itemType" : "COLLATERAL",
+                                "orderType" : "AL",
+                                "transactionType" : "B",
+                                "fulfillmentType" : "DF",
+                                "planType" : [],
+                                "imei" : "",
+                                "managerOverride" : []
+                            }, 
+                            {
+                                "portIn" : false,
+                                "itemNumber" : "4",
+                                "itemType" : "VOICEPLAN",
+                                "orderType" : "AL",
+                                "transactionType" : "B",
+                                "fulfillmentType" : "DF",
+                                "planType" : [],
+                                "imei" : "",
+                                "managerOverride" : []
+                            }
+                        ]
+                    }
+                ]
+            }, 
+            {
+                "account" : {
+                    "authorizedUserList" : [ 
+                        {}
+                    ]
+                }
+            }
+        ],
+        "shippingAddress" : {
+            "shippingMethod" : "OVERNIGHT",
+            "addressType" : "S",
+            "firstName" : "TEST",
+            "lastName" : "USER1",
+            "addressLine1" : "2207 N TEST ST",
+            "addressLine2" : "",
+            "city" : "DALLAS",
+            "state" : "TX",
+            "zipCode" : "77488",
+            "country" : "US",
+            "lastNameNormalized" : "USER1",
+            "lastNameHasSpecialCharacter" : "false",
+            "firstNameNormalized" : "TEST",
+            "firstNameSimplified" : "USER1",
+            "lastNameSimplified" : "TEST",
+            "firstNameHasSpecialCharacter" : "false",
+            "fullNameNormalized" : "TEST USER1"
+        },
+        "paymentList" : [ 
+            {
+                "billingAddress" : {
+                    "addressLine1" : "2207 N TEST ST",
+                    "addressLine2" : "",
+                    "city" : "DALLAS",
+                    "state" : "TX",
+                    "zipCode" : "77488",
+                    "country" : "US"
+                },
+                "paymentType" : "BTM",
+                "paymentAmount" : 0.0,
+                "cardAction" : "DIGITAL",
+                "cardFirstName" : "NONAME",
+                "cardMiddleName" : "NONAME",
+                "cardMiddleNameHasSpecialCharacter" : "false",
+                "cardMiddleNameSimplified" : "NONAME",
+                "cardFirstNameNormalized" : "NONAME",
+                "cardMiddleNameNormalized" : "NONAME",
+                "cardFullNameNormalized" : "NONAME "
+            }, 
+            {
+                "billingAddress" : {
+                    "addressLine1" : "207 TEST ST",
+                    "addressLine2" : "",
+                    "city" : "DALLAS",
+                    "state" : "TX",
+                    "zipCode" : "77488",
+                    "country" : "US"
+                },
+                "paymentType" : "BTM",
+                "paymentAmount" : 79.33,
+                "cardAction" : "DIGITAL",
+                "cardFirstName" : "NONAME",
+                "cardMiddleName" : "NONAME",
+                "cardMiddleNameHasSpecialCharacter" : "false",
+                "cardMiddleNameSimplified" : "NONAME",
+                "cardFirstNameNormalized" : "NONAME",
+                "cardMiddleNameNormalized" : "NONAME",
+                "cardFullNameNormalized" : "NONAME "
+            }
+        ],
+        "loginProfile" : {
+            "userGuId" : "229668016",
+            "userId" : "TESTUSER1187@HOTMAIL.COM@SLID.DUM"
+        },
+        "mitigationReturnUrl" : "https://ocemitigation.lbdel.web.att.com/msapi/v1/mitigationms/status",
+        "statusDetail" : {
+            "subStatus" : "RECEIVED",
+            "status" : "RECEIVED"
+        },
+        "creditPolicy" : {
+            "crsmOnFlag" : true,
+            "creditPolicyTransactionId" : "P20240121309867121",
+            "policyAcceptedIndicator" : true,
+            "uucpStatus" : "UPD_PENDING_SUCCESS"
+        },
+        "submittedDate" : 1705882565249,
+        "type" : "CREATE",
+        "customerOrderNumber" : "66-66666666666611",
+        "referenceDetail" : {
+            "associatedRequestID" : "330668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+            "commonOrderIndicator" : true,
+            "testOrderIndicator" : false,
+            "posReferenceId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae-cart-00005",
+            "encryptedIndicator" : true,
+            "fraudDetectionDetail" : {
+                "additionalDetails" : [ 
+                    {
+                        "type" : "PET",
+                        "value" : "201",
+                        "code" : "PRIMARY_MITIGATION_ID"
+                    }, 
+                    {
+                        "type" : "PET",
+                        "value" : "AUTHENTICID 201",
+                        "code" : "PRIMARY_MITIGATION_DESCRIPTION"
+                    }, 
+                    {
+                        "type" : "PET",
+                        "value" : "DEFAULT",
+                        "code" : "PIN_INIT_SOURCE"
+                    }
+                ],
+                "smsCTN" : "8896339748"
+            },
+            "posUUID" : "330668000"
+        },
+        "termsAndConditions" : [ 
+            {
+                "agreementType" : "CON",
+                "agreementText" : "I HAVE READ AND AGREE TO THE CONSENT TO ELECTRONIC DELIVERY OF DISCLOSURES AND COMMUNICATIONS",
+                "accepted" : "Y",
+                "id" : "TERMS_01",
+                "category" : "WIRELESS",
+                "version" : "V3-5-13-2020",
+                "orderLevelIndicator" : "TRUE",
+                "timestamp" : "1705882564003"
+            }, 
+            {
+                "agreementType" : "CSA",
+                "agreementText" : "I HAVE READ AND AGREE TO THE AT&T CONSUMER SERVICE AGREEMENT (AND THE INCLUDED PROVISIONS FOR BINDING INDIVIDUAL ARBITRATION RATHER THAN JURY TRIALS OR CLASS ACTIONS), UNDER WHICH SERVICE WILL AUTO-RENEW MONTHLY UNTIL CANCELLED.",
+                "accepted" : "Y",
+                "id" : "TERMS_03",
+                "category" : "WIRELESS",
+                "version" : "V15",
+                "orderLevelIndicator" : "TRUE",
+                "timestamp" : "1705882564003"
+            }, 
+            {
+                "agreementType" : "PAPERLESS_BILLING",
+                "agreementText" : "I HAVE READ AND AGREE TO THE PAPERLESS BILLING DISCLOSURES",
+                "accepted" : "Y",
+                "id" : "TERMS_PAPERLESS_BILLING_01",
+                "category" : "WIRELESS",
+                "version" : "01",
+                "orderLevelIndicator" : "TRUE",
+                "timestamp" : "1705882564208"
+            }
+        ],
+        "priceList" : [ 
+            {
+                "currencyType" : "USD",
+                "amount" : 0.0,
+                "total" : 99.0,
+                "taxDetail" : {
+                    "amount" : 99
+                },
+                "msrp" : 0.0,
+                "priceType" : "DUE_UPON_FFL",
+                "baseAmount" : 0.0
+            }, 
+            {
+                "currencyType" : "USD",
+                "priceType" : "RC",
+                "amount" : 79.33,
+                "total" : 79.33,
+                "baseAmount" : 0.0,
+                "msrp" : 0.0
+            }, 
+            {
+                "currencyType" : "USD",
+                "priceType" : "NRC",
+                "amount" : 35.0,
+                "total" : 35.0,
+                "baseAmount" : 0.0,
+                "msrp" : 0.0
+            }, 
+            {
+                "currencyType" : "USD",
+                "priceType" : "DUE_NOW",
+                "amount" : 0.0,
+                "total" : 0.0,
+                "baseAmount" : 0.0,
+                "msrp" : 0.0
+            }
+        ],
+        "shippingDetails" : [ 
+            {
+                "sequence" : 1,
+                "shippingCode" : "AA1",
+                "address" : {
+                    "id" : "ADDRESS_01",
+                    "unparsedAddress" : {
+                        "zip" : "77488",
+                        "addressLine1" : "207 TEST ST",
+                        "country" : "US",
+                        "state" : "TX",
+                        "zipCodeExtension" : "3803",
+                        "city" : "WHARTON"
+                    },
+                    "codingAccuracySupportSystemAddress" : {
+                        "addressLines" : [ 
+                            "TEST USER1", 
+                            "207 TEST ST", 
+                            "WHARTON TX  77488-3803"
+                        ]
+                    },
+                    "auxiliaryAddress" : {
+                        "line1" : "TEST USER1"
+                    },
+                    "parsedAddress" : {
+                        "zip" : "77488",
+                        "country" : "US",
+                        "streetType" : "ST",
+                        "city" : "WHARTON",
+                        "addressType" : "UNITED_STATES",
+                        "county" : "WHARTON",
+                        "houseNumber" : "207",
+                        "zipCodeExtension" : "3803",
+                        "addressStreetLine" : "207 TEST ST",
+                        "streetName" : "ALABAMA",
+                        "addressMatchCode" : "4SC0",
+                        "primaryAddressLine" : "207 TEST ST",
+                        "state" : "TX",
+                        "direction" : "W"
+                    },
+                    "validatedIndicator" : true
+                },
+                "shippingPriceCode" : "88879",
+                "price" : {
+                    "amount" : 0.0,
+                    "total" : 0,
+                    "taxDetail" : {
+                        "taxablePriceDetail" : {
+                            "shipToTaxAreaId" : 444813130,
+                            "taxableCost" : 0,
+                            "orderTaxAreaId" : 390950000,
+                            "shipFromTaxAreaId" : 431570560,
+                            "taxableMSRP" : 14.95,
+                            "taxableUnitPrice" : 0.0
+                        },
+                        "lineItemTaxes" : [ 
+                            {
+                                "skuSpecific" : "FALSE",
+                                "jurisdictionLevel" : "SALES TAX",
+                                "taxable" : "X",
+                                "displayOrder" : 0,
+                                "memo" : "SALESTAX",
+                                "authorityLevel" : 0,
+                                "taxCode" : "SALESTAX",
+                                "taxDate" : "2024-01-21T12:00:00",
+                                "taxLineId" : 1,
+                                "taxRate" : 0.0,
+                                "jurisdictionName" : "SALES TAX",
+                                "printName" : "SALES TAX",
+                                "taxAmount" : 0.0
+                            }
+                        ]
+                    }
+                },
+                "shippingMethod" : "OVERNIGHT",
+                "recipientName" : {
+                    "firstName" : "TEST",
+                    "lastName" : "USER1",
+                    "emailAddress" : "TESTUSER1187@HOTMAIL.COM",
+                    "primaryContactPhones" : [ 
+                        {
+                            "contactPhoneType" : "CELL_PHONE",
+                            "consentDetails" : [ 
+                                {
+                                    "consentType" : "BOTH",
+                                    "consentCategory" : "GLOBAL",
+                                    "consentSelection" : "OPT-OUT"
+                                }
+                            ],
+                            "phoneNumber" : "8895318612"
+                        }
+                    ],
+                    "id" : "NAME_01"
+                },
+                "carrierPreference" : "UNKNOWN",
+                "id" : "FULFILLMENT_OPTION_1"
+            }
+        ],
+        "requestId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae-cart-00005",
+        "priceSummaryList" : [ 
+            {
+                "currencyType" : "USD",
+                "priceType" : "DUE_NOW",
+                "amount" : 0,
+                "total" : 0
+            }, 
+            {
+                "currencyType" : "USD",
+                "priceType" : "DUE_UPON_FFL",
+                "amount" : 0,
+                "taxSummary" : [ 
+                    {
+                        "amount" : 99
+                    }
+                ],
+                "total" : 99
+            }, 
+            {
+                "currencyType" : "USD",
+                "priceType" : "NRC",
+                "amount" : 35,
+                "total" : 35
+            }, 
+            {
+                "currencyType" : "USD",
+                "priceType" : "RC",
+                "amount" : 79.33,
+                "total" : 79.33
+            }
+        ],
+        "salesAgent" : {
+            "location" : "Z0066",
+            "salesCode" : "Z0066",
+            "agentCode" : "Z0066"
+        },
+        "subChannel" : "IDP",
+        "requestDate" : 1705882688052,
+        "losgs" : [ 
+            {
+                "dealerCode" : "Z0066",
+                "primaryIndicator" : "TRUE",
+                "losgStatus" : {
+                    "subStatus" : "RECEIVED",
+                    "status" : "SYS_RECEIVED"
+                },
+                "wirelessLOSCharacteristics" : {
+                    "billingSystemId" : "T",
+                    "shoppingZipCode" : "77488"
+                },
+                "type" : "LINE_OF_SERVICE",
+                "productCategory" : "WIRELESS",
+                "lineItems" : [ 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "7999C",
+                        "displayName" : "SIM KIT",
+                        "payments" : [ 
+                            {
+                                "paymentTenderReference" : "PAYMENT_TENDER_1",
+                                "amount" : 0.0
+                            }
+                        ],
+                        "hardGood" : {
+                            "hardGoodType" : "SIM",
+                            "deliveryPromiseNote" : {}
+                        },
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "7999C",
+                        "sequence" : 2,
+                        "productSKU" : "7999C",
+                        "productCode" : "NA",
+                        "systemName" : "NOT_AVAILABLE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ],
+                                    "taxableCost" : 0.0,
+                                    "orderTaxAreaId" : 390950000,
+                                    "shipFromTaxAreaId" : 431570560,
+                                    "taxableMSRP" : 0.0,
+                                    "taxableUnitPrice" : 0.0
+                                },
+                                "amount" : 0,
+                                "lineItemTaxes" : [ 
+                                    {
+                                        "skuSpecific" : "FALSE",
+                                        "jurisdictionLevel" : "SALES TAX",
+                                        "taxable" : "X",
+                                        "displayOrder" : 0,
+                                        "memo" : "SALESTAX",
+                                        "authorityLevel" : 0,
+                                        "taxCode" : "SALESTAX",
+                                        "taxDate" : 1705816800000,
+                                        "taxLineId" : 1,
+                                        "taxRate" : 0,
+                                        "jurisdictionName" : "SALES TAX",
+                                        "printName" : "SALES TAX",
+                                        "taxAmount" : 0
+                                    }
+                                ]
+                            },
+                            "msrp" : 0.0,
+                            "priceType" : "DUE_UPON_FFL",
+                            "baseAmount" : 0.0
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-7999C",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "HARDGOOD",
+                        "status" : "IN_PROGRESS"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "84786",
+                        "displayName" : "KIT_GUIDE_ECOM_PHONE_14SERIES",
+                        "payments" : [ 
+                            {
+                                "paymentTenderReference" : "PAYMENT_TENDER_1",
+                                "amount" : 0.0
+                            }
+                        ],
+                        "hardGood" : {
+                            "hardGoodType" : "COLLATERAL",
+                            "deliveryPromiseNote" : {}
+                        },
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "84786",
+                        "sequence" : 3,
+                        "productSKU" : "84786",
+                        "productCode" : "84786",
+                        "systemName" : "NOT_AVAILABLE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ],
+                                    "taxableCost" : 0.0,
+                                    "orderTaxAreaId" : 390950000,
+                                    "shipFromTaxAreaId" : 431570560,
+                                    "taxableMSRP" : 0.0,
+                                    "taxableUnitPrice" : 0.0
+                                },
+                                "amount" : 0,
+                                "lineItemTaxes" : [ 
+                                    {
+                                        "skuSpecific" : "FALSE",
+                                        "jurisdictionLevel" : "SALES TAX",
+                                        "taxable" : "X",
+                                        "displayOrder" : 0,
+                                        "memo" : "SALESTAX",
+                                        "authorityLevel" : 0,
+                                        "taxCode" : "SALESTAX",
+                                        "taxDate" : 1705816800000,
+                                        "taxLineId" : 1,
+                                        "taxRate" : 0,
+                                        "jurisdictionName" : "SALES TAX",
+                                        "printName" : "SALES TAX",
+                                        "taxAmount" : 0
+                                    }
+                                ]
+                            },
+                            "msrp" : 0.0,
+                            "priceType" : "DUE_UPON_FFL",
+                            "baseAmount" : 0.0
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-84786",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "HARDGOOD",
+                        "status" : "IN_PROGRESS"
+                    }, 
+                    {
+                        "fees" : {
+                            "feeIdType" : "ACTIVITY_CODE",
+                            "feeId" : "ACT",
+                            "waivedIndicator" : false
+                        },
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "ACTIVATION_FEE",
+                        "displayName" : "ACTIVATION_FEE",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "NOT_AVAILABLE",
+                        "sequence" : 4,
+                        "productSKU" : "NOT_AVAILABLE",
+                        "productCode" : "NOT_AVAILABLE",
+                        "systemName" : "ACTIVATION_FEE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "NRC",
+                            "amount" : 35.0,
+                            "total" : 35.0,
+                            "baseAmount" : 35.0,
+                            "msrp" : 35.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-ACTIVATION_FEE",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "MISC_CHARGE",
+                        "wirelessLineItemCharacteristics" : {}
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "BASIC VOICE MAIL",
+                        "description" : "BASIC VOICE MAIL",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "BWBN",
+                        "sequence" : 5,
+                        "productSKU" : "BWBN",
+                        "productCode" : "BWBN",
+                        "systemName" : "BASIC VOICE MAIL FOR POSTPAID",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-BWBN",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "CALL FORWARDING",
+                        "description" : "CALL FORWARDING",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "CFI",
+                        "sequence" : 6,
+                        "productSKU" : "CFI",
+                        "productCode" : "CFI",
+                        "systemName" : "CALL FORWARDING",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-CFI",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "displayName" : "CALLER ID",
+                        "description" : "CALLER ID",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "CLI",
+                        "sequence" : 7,
+                        "productSKU" : "CLI",
+                        "productCode" : "CLI",
+                        "systemName" : "CALLER ID",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-CLI",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "LONG DISTANCE",
+                        "description" : "LONG DISTANCE",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "CNTF",
+                        "sequence" : 8,
+                        "productSKU" : "CNTF",
+                        "productCode" : "CNTF",
+                        "systemName" : "LONG DISTANCE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-CNTF",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "CALL WAITING",
+                        "description" : "CALL WAITING",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "CW",
+                        "sequence" : 9,
+                        "productSKU" : "CW",
+                        "productCode" : "CW",
+                        "systemName" : "CALL WAITING FOR POSTPAID",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-CW",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "UNLIMITED MOBILE TO MOBILE CALLING",
+                        "description" : "UNLIMITED MOBILE TO MOBILE CALLING",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "MM",
+                        "sequence" : 10,
+                        "productSKU" : "MM",
+                        "productCode" : "MM",
+                        "systemName" : "UNLIMITED MOBILE TO MOBILE CALLING - NATION",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-MM",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "CONFERENCE CALLING",
+                        "description" : "CONFERENCE CALLING",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "MPTY",
+                        "sequence" : 11,
+                        "productSKU" : "MPTY",
+                        "productCode" : "MPTY",
+                        "systemName" : "CONFERENCE CALLING",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-MPTY",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "NOT_AVAILABLE",
+                        "displayName" : "MOBILE SHARE UNLIMITED MESSAGING - UNLMSGSO",
+                        "description" : "MOBILE SHARE UNLIMITED MESSAGING - UNLMSGSO",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "UNLMSGSO",
+                        "sequence" : 12,
+                        "productSKU" : "UNLMSGSO",
+                        "productCode" : "UNLMSGSO",
+                        "systemName" : "UNLMSGSO",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-UNLMSGSO",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "INCLUDED_FEATURE"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "sku10060281",
+                        "displayName" : "AT&T UNLIMITED YOUR WAY??",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "UNLIMTSDG",
+                        "sequence" : 13,
+                        "productSKU" : "UNLIMTSDG",
+                        "productCode" : "PROD10690221",
+                        "systemName" : "NOT_AVAILABLE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-SKU10060281",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "OPTIONAL_FEATURE",
+                        "wirelessLineItemCharacteristics" : {
+                            "offerType" : "G"
+                        }
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "sku11590225",
+                        "displayName" : "AT&T UNLIMITED STARTER?? SL PLAN",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "LPMENTR4",
+                        "sequence" : 14,
+                        "productSKU" : "LPMENTR4",
+                        "productCode" : "PROD12010223",
+                        "systemName" : "NOT_AVAILABLE",
+                        "tier" : "LLPTRENT",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 45.99,
+                            "total" : 45.99,
+                            "baseAmount" : 45.99,
+                            "msrp" : 45.99,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-SKU11590225",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "OPTIONAL_FEATURE",
+                        "wirelessLineItemCharacteristics" : {
+                            "offerType" : "P"
+                        }
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "sku2890289",
+                        "displayName" : "APPLE IPHONE 15 PRO MAX - 256GB - BLUE TITANIUM",
+                        "payments" : [ 
+                            {
+                                "paymentTenderReference" : "PAYMENT_TENDER_1",
+                                "amount" : 99.0
+                            }
+                        ],
+                        "hardGood" : {
+                            "productImageUrl" : "/SCMSASSETS/GLOBAL/DEVICES/PHONES/APPLE/APPLE-IPHONE-15-PRO-MAX/DEFAULTIMAGE/BLUE-TITANIUM-HERO-ZOOM.PNG",
+                            "shipmentCommitDate" : {
+                                "fromDate" : "1705910400000",
+                                "toDate" : "1705996800000"
+                            },
+                            "preOrderIndicator" : false,
+                            "deliveryByDate" : {
+                                "fromDate" : "1705996800000",
+                                "toDate" : "1706083200000"
+                            },
+                            "byodIndicator" : false,
+                            "model" : "IPHONE 15 PRO MAX",
+                            "make" : "APPLE",
+                            "wirelessHardGoodCharacteristics" : {
+                                "imeiType" : "6A",
+                                "phoneType" : "SMART_PHONE",
+                                "deviceCategory" : "SP",
+                                "equipmentType" : "EDGE",
+                                "techType" : "UMTS"
+                            },
+                            "hardGoodType" : "DEVICE",
+                            "deliveryPromiseNote" : {}
+                        },
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "6912D",
+                        "sequence" : 15,
+                        "productSKU" : "6912D",
+                        "productCode" : "PKEY94002",
+                        "systemName" : "NOT_AVAILABLE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "amount" : 0.0,
+                            "total" : 99.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ],
+                                    "taxableCost" : 1199.0,
+                                    "orderTaxAreaId" : 390950000,
+                                    "shipFromTaxAreaId" : 431570560,
+                                    "taxableMSRP" : 1199.99,
+                                    "taxableUnitPrice" : 1199.99
+                                },
+                                "amount" : 99,
+                                "lineItemTaxes" : [ 
+                                    {
+                                        "skuSpecific" : "FALSE",
+                                        "jurisdictionLevel" : "SALES TAX",
+                                        "taxable" : "X",
+                                        "displayOrder" : 0,
+                                        "memo" : "SALESTAX",
+                                        "authorityLevel" : 0,
+                                        "taxCode" : "SALESTAX",
+                                        "taxDate" : 1705816800000,
+                                        "taxLineId" : 1,
+                                        "taxRate" : 0,
+                                        "jurisdictionName" : "SALES TAX",
+                                        "printName" : "SALES TAX",
+                                        "taxAmount" : 99
+                                    }
+                                ]
+                            },
+                            "msrp" : 1199.99,
+                            "priceType" : "DUE_UPON_FFL",
+                            "baseAmount" : 0.0
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-SKU2890289",
+                        "contractDetails" : {
+                            "contractDisplayName" : "AT&T INSTALLMENT PLAN",
+                            "contractSent" : "N",
+                            "annualPercentageRate" : 0.0,
+                            "installmentAmount" : 33.34,
+                            "contractType" : "LEASE",
+                            "installmentPlanDefinition" : "NE36MNUP",
+                            "downPaymentPercent" : 0.0,
+                            "balancedAmount" : 1199.99,
+                            "amountFinanced" : 1199.99,
+                            "contractSystem" : "OPTICAL",
+                            "totalSalePrice" : 1199.99,
+                            "prepaidFinanceCharge" : 0.0,
+                            "downPayment" : 0.0,
+                            "financeCharge" : 0.0,
+                            "contractLength" : 36
+                        },
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "HARDGOOD",
+                        "status" : "IN_PROGRESS"
+                    }, 
+                    {
+                        "productGroupReferences" : [ 
+                            "PG_01"
+                        ],
+                        "quantity" : 1,
+                        "catalogSKUId" : "sku6220543",
+                        "displayName" : "MOBILE SHARE PLAN",
+                        "shippingDetailReference" : "FULFILLMENT_OPTION_1",
+                        "billingCode" : "SDDVRP",
+                        "sequence" : 16,
+                        "productSKU" : "SDDVRP",
+                        "productCode" : "PROD6130421",
+                        "systemName" : "NOT_AVAILABLE",
+                        "locationId" : "K006",
+                        "price" : {
+                            "currencyType" : "USD",
+                            "priceType" : "RC",
+                            "amount" : 0.0,
+                            "total" : 0.0,
+                            "baseAmount" : 0.0,
+                            "msrp" : 0.0,
+                            "taxDetail" : {
+                                "taxablePriceDetail" : {
+                                    "shipToTaxAreaId" : [ 
+                                        431570560, 
+                                        431570560, 
+                                        431570560
+                                    ]
+                                }
+                            }
+                        },
+                        "action" : "ADD",
+                        "id" : "LOSG-WLS-AL-001-LI-SKU6220543",
+                        "preOwnedIndicator" : "FALSE",
+                        "productType" : "PLAN"
+                    }
+                ],
+                "losgType" : "AL",
+                "price" : [ 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "DUE_UPON_FFL",
+                        "amount" : 0.0,
+                        "total" : 99.0,
+                        "taxDetail" : {
+                            "amount" : 99.0
+                        },
+                        "baseAmount" : 0.0
+                    }, 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "RC",
+                        "amount" : 79.33,
+                        "total" : 79.33,
+                        "baseAmount" : 79.33
+                    }, 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "NRC",
+                        "amount" : 35.0,
+                        "total" : 35.0,
+                        "baseAmount" : 35.0
+                    }, 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "DUE_NOW",
+                        "amount" : 0.0,
+                        "total" : 0.0,
+                        "baseAmount" : 0.0
+                    }
+                ],
+                "fwiMoveInIndicator" : false,
+                "priceSummaryList" : [ 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "DUE_UPON_FFL",
+                        "amount" : 0,
+                        "taxSummary" : [ 
+                            {
+                                "amount" : 99
+                            }
+                        ],
+                        "total" : 99
+                    }, 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "RC",
+                        "amount" : 79.33,
+                        "total" : 79.33
+                    }, 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "NRC",
+                        "amount" : 35,
+                        "total" : 35
+                    }, 
+                    {
+                        "currencyType" : "USD",
+                        "priceType" : "DUE_NOW",
+                        "amount" : 0,
+                        "total" : 0
+                    }
+                ],
+                "id" : "LOSG-WLS-AL-001",
+                "accountReference" : "ACCOUNT_02",
+                "serviceArea" : "009078003630",
+                "subMarket" : "BUR",
+                "fwCAF2AddressIndicator" : false,
+                "fulfillmentMethod" : "DF",
+                "preferredAreaCode" : "979",
+                "serviceAddress" : {
+                    "id" : "ADDRESS_03",
+                    "unparsedAddress" : {
+                        "zip" : "77488",
+                        "addressLine1" : "207 TEST ST",
+                        "country" : "US",
+                        "state" : "TX",
+                        "city" : "WHARTON"
+                    },
+                    "codingAccuracySupportSystemAddress" : {
+                        "addressLines" : [ 
+                            "207 TEST ST", 
+                            "WHARTON TX  77488-3803"
+                        ]
+                    },
+                    "parsedAddress" : {
+                        "zip" : "77488",
+                        "country" : "US",
+                        "streetType" : "ST",
+                        "city" : "WHARTON",
+                        "addressType" : "UNITED_STATES",
+                        "county" : "WHARTON",
+                        "houseNumber" : "207",
+                        "zipCodeExtension" : "3803",
+                        "addressStreetLine" : "207 TEST ST",
+                        "streetName" : "ALABAMA",
+                        "addressMatchCode" : "4SC0",
+                        "primaryAddressLine" : "207 TEST ST",
+                        "state" : "TX",
+                        "direction" : "W"
+                    },
+                    "validatedIndicator" : true
+                },
+                "termsAndConditionAccepted" : [ 
+                    {
+                        "agreementType" : "DEV",
+                        "agreementText" : "I HAVE READ AND AGREE TO THE RETAIL INSTALLMENT AGREEMENT AND THE INCLUDED PROVISIONS FOR BINDING INDIVIDUAL ARBITRATION.",
+                        "agreementURL" : "https://apporigin-idp1.aldc.att.com:8443/msapi/checkout/v1/idse_order_tos_content/key/339668000_f03bfd9b35fc98ee31b99028e0cc92ae/DEV/losg-wls-al-001.html",
+                        "accepted" : "Y",
+                        "id" : "TERMS_02",
+                        "category" : "WIRELESS",
+                        "version" : "/CONTENT/TOS/EN/DEVICEINSTALLMENTPLAN/2015/02/24",
+                        "orderLevelIndicator" : false,
+                        "timestamp" : "1705882564003"
+                    }
+                ],
+                "additionalDetails" : [ 
+                    {
+                        "type" : "CRSM",
+                        "value" : "LINE01",
+                        "code" : "CRSM_IDENTIFIER"
+                    }
+                ],
+                "market" : "AUS",
+                "sequence" : 1,
+                "billingSystemId" : "T",
+                "subscriberName" : {
+                    "firstName" : "TEST",
+                    "lastName" : "test",
+                    "emailAddress" : "testuser1187@HOTMAIL.COM",
+                    "primaryContactPhones" : [ 
+                        {
+                            "contactPhoneType" : "CELL_PHONE",
+                            "consentDetails" : [ 
+                                {
+                                    "consentType" : "Both",
+                                    "consentCategory" : "Global",
+                                    "consentSelection" : "Opt-Out"
+                                }
+                            ],
+                            "phoneNumber" : "9795318612"
+                        }
+                    ],
+                    "id" : "NAME_01"
+                }
+            }
+        ],
+        "requestType" : "SOR",
+        "paymentTenders" : [ 
+            {
+                "paymentMethod" : {
+                    "btm" : {
+                        "subscriberNumber" : "9999999999",
+                        "totalAmount" : 99.0,
+                        "equipmentType" : "G"
+                    }
+                },
+                "sequence" : 1,
+                "id" : "PAYMENT_TENDER_1"
+            }
+        ],
+        "additionalDetails" : [ 
+            {
+                "type" : "ROUTING_INFO",
+                "value" : "USWEST2",
+                "code" : "ORDER_ACCEPT_REGION"
+            }, 
+            {
+                "type" : "ROUTING_INFO",
+                "value" : "USWEST2",
+                "code" : "ORDER_ORIGINATED_REGION"
+            }, 
+            {
+                "type" : "ROUTING_INFO",
+                "value" : "USWEST2",
+                "code" : "ORDER_THROTTLE_REGION"
+            }, 
+            {
+                "type" : "INTERNAL",
+                "value" : "CAMUNDA",
+                "code" : "PROCESSED_BY"
+            }
+        ],
+        "createdDate" : "1705882565249",
+        "contactDetail" : {
+            "productUpdatesByEmailPermissionIndicator" : true,
+            "personalDetail" : {
+                "firstName" : "testuser",
+                "lastName" : "test",
+                "emailAddress" : "testuser1187@hotmail.com",
+                "primaryContactPhones" : [ 
+                    {
+                        "contactPhoneType" : "CELL_PHONE",
+                        "consentDetails" : [ 
+                            {
+                                "consentType" : "Both",
+                                "consentCategory" : "Global",
+                                "consentSelection" : "Opt-Out"
+                            }
+                        ],
+                        "phoneNumber" : "9795318612"
+                    }
+                ],
+                "id" : "NAME_01"
+            },
+            "preferredContactMethod" : "TELEPHONE",
+            "primaryEmailAddress" : "testuser1187@hotmail.com"
+        },
+        "sourceDetail" : {
+            "zip" : "33101-33102 33106 33111-33112 33114 33116 33122 33124-33138 33142-33147 33150-33159 33161-33170 33172-33190 33193-33194 33196-33197 33199 33231 33233-33234 33238 33242-33243 33245 33247 33255-33257 33261 33265-33266 33269 33280 33283 33296 33299",
+            "city" : "MIAMI",
+            "channel" : "DE-MOBILITY",
+            "county" : "MIAMIDADE",
+            "salesChannelType" : "WEB",
+            "additionalDetails" : [ 
+                {
+                    "type" : "RPT",
+                    "value" : "06715333672819044600373892981797937506",
+                    "code" : "MCID"
+                }, 
+                {
+                    "type" : "RPT",
+                    "value" : "/buy/thankyou",
+                    "code" : "PAGE_LOCATION_URL"
+                }, 
+                {
+                    "type" : "RPT",
+                    "value" : "DSAAL",
+                    "code" : "PAGE_INFO_FLOWCODE"
+                }, 
+                {
+                    "type" : "RPT",
+                    "value" : "AAL_WIRELESS",
+                    "code" : "NEWCO_CUST_DESC"
+                }, 
+                {
+                    "value" : "true",
+                    "code" : "IS_FMO"
+                }
+            ],
+            "locale" : "EN_US",
+            "salesChannel" : "E",
+            "externalOrderSource" : "EST",
+            "clientType" : "DESKTOP",
+            "application" : "IDP",
+            "sender" : "IDP-STC",
+            "countryCode" : "US",
+            "initiatingApplication" : "PSC",
+            "premierDetail" : {},
+            "clientIP" : "192.168.1.1",
+            "region" : "FL"
+        },
+        "accounts" : [ 
+            {
+                "billingDeliveryPreference" : "PAPERLESS",
+                "accountSubCategory" : "EXISTING",
+                "accountCategory" : "MOBILITY_ACCOUNT",
+                "accountSubType" : "R",
+                "accountType" : "INDIVIDUAL",
+                "billingAccountNumber" : "444028277679",
+                "subMarket" : "BUR",
+                "billingDetail" : [ 
+                    {
+                        "name" : {
+                            "firstName" : "testuser",
+                            "lastName" : "test",
+                            "emailAddress" : "testuser1187@hotmail.com",
+                            "primaryContactPhones" : [ 
+                                {
+                                    "contactPhoneType" : "CELL_PHONE",
+                                    "consentDetails" : [ 
+                                        {
+                                            "consentType" : "Both",
+                                            "consentCategory" : "Global",
+                                            "consentSelection" : "Opt-Out"
+                                        }
+                                    ],
+                                    "phoneNumber" : "9795318612"
+                                }
+                            ],
+                            "id" : "NAME_01",
+                            "emailDomain" : "HOTMAIL.COM"
+                        },
+                        "authentication" : {
+                            "dob" : "01/01/1900",
+                            "ssn" : "330668000"
+                        },
+                        "address" : {
+                            "id" : "ADDRESS_02",
+                            "unparsedAddress" : {
+                                "zip" : "77488",
+                                "addressLine1" : "207 TEST ST",
+                                "country" : "US",
+                                "state" : "TX",
+                                "zipCodeExtension" : "3803",
+                                "city" : "WHARTON",
+                                "addressLine2" : [ 
+                                    "207 TEST ST"
+                                ]
+                            },
+                            "codingAccuracySupportSystemAddress" : {
+                                "addressLines" : [ 
+                                    "testuser test", 
+                                    "207 TEST ST", 
+                                    "WHARTON TX  77488-3803"
+                                ]
+                            },
+                            "auxiliaryAddress" : {
+                                "line1" : "testuser test"
+                            },
+                            "parsedAddress" : {
+                                "zip" : "77488",
+                                "country" : "US",
+                                "streetType" : "ST",
+                                "city" : "WHARTON",
+                                "addressType" : "UNITED_STATES",
+                                "county" : "WHARTON",
+                                "houseNumber" : "207",
+                                "zipCodeExtension" : "3803",
+                                "addressStreetLine" : "207 TEST ST",
+                                "streetName" : "ALABAMA",
+                                "addressMatchCode" : "4SC0",
+                                "primaryAddressLine" : "207 TEST ST",
+                                "state" : "TX",
+                                "direction" : "W"
+                            },
+                            "validatedIndicator" : true
+                        }
+                    }
+                ],
+                "liabilityType" : "INDIVIDUAL",
+                "enterpriseType" : "CON",
+                "market" : "AUS",
+                "sequence" : 1,
+                "creditCheck" : {
+                    "depositAmount" : 0,
+                    "creditClass" : "B",
+                    "applicationApprovalDate" : "2023-12-01T00:00:00Z",
+                    "applicationNumber" : "401207037834",
+                    "creditCheckRanIndicator" : true,
+                    "numberLinesRequired" : 0,
+                    "creditStatus" : "APPROVED",
+                    "reasonCode" : "EA",
+                    "numberApprovedLines" : 18,
+                    "applicationExpiresDate" : "2023-12-04T00:00:00Z"
+                },
+                "spokenLanguagePreference" : "ENGLISH",
+                "paymentArrangement" : "POSTPAID",
+                "id" : "ACCOUNT_02",
+                "langId" : "ENGLISH",
+                "billingLanguagePreference" : "ENGLISH"
+            }
+        ],
+        "productGroups" : [ 
+            {
+                "name" : "MOBILE_SHARE",
+                "sequence" : 1,
+                "id" : "PG_01",
+                "type" : "SHARED_PLAN",
+                "sharedPlanCharacteristics" : {
+                    "dataGroupId" : "G904366",
+                    "planType" : "MOBILE_SHARE"
+                }
+            }
+        ],
+        "accountCode" : "777",
+        "isCloud" : true,
+        "memMergedRuns" : [ 
+            "RUN1", 
+            "RUN3"
+        ],
+        "wirelineBans" : [],
+        "applicationId" : "41DC3AE3-924B-40AC-BD87-341876E3CD9641705882688360",
+        "neustarDigitalIdentityRisk" : {
+            "nsr" : "dc15-eid-prod-gwy02:092",
+            "transid" : "41DC3AE3-924B-40AC-BD87-341876E3CD9641705882688360-ocedirect",
+            "errorcode" : "0",
+            "response" : [ 
+                {
+                    "4287" : {
+                        "predictiveFeatures" : {
+                            "sessionId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+                            "aaMatchLevelDirect" : "No linkage for device",
+                            "aaMatchDirectKM" : -1.0,
+                            "aaMatchFirstSeen" : "",
+                            "aaMatchLevelInferred" : "No linkage for device",
+                            "aaMatchInferredKM" : -99.0,
+                            "aaMatchInferredFirstSeen" : "",
+                            "aaMatchLevelInferredGraph" : "No linkage for device",
+                            "aaMatchInferredGraphKM" : -99.0,
+                            "aaMatchInferredGraphFirstSeen" : "",
+                            "deviceGraphHHMatchLevel" : "No linkage for device",
+                            "deviceGraphHHMatchKM" : -1.0,
+                            "cookieAge" : -1,
+                            "ipRealScore" : 5,
+                            "ipConnectionType" : "No Record",
+                            "ipHostingIndicator" : false,
+                            "anonymizerStatus" : "No Record",
+                            "proxyLastDetected" : "No Record",
+                            "proxyType" : "No Record",
+                            "proxyLevel" : "No Record",
+                            "uaDeviceType" : "Mac",
+                            "uaBrowserFamily" : "Safari",
+                            "uaOperatingSystem" : "Mac",
+                            "ipAffinityHighRisk" : 465,
+                            "aaSIDs" : [],
+                            "ipToMobileGeoDistanceClassification" : "<100.0 KM",
+                            "emailMatch" : false,
+                            "emailCount" : 0,
+                            "enlPhoneToName" : 2,
+                            "enlAddressToName" : 1,
+                            "enlEmailToName" : 1,
+                            "enlEmailToPhone" : 1,
+                            "enlEmailToAddress" : 1,
+                            "enlAddressToPhone" : 0,
+                            "enlVerificationResult" : 1,
+                            "observations7Days" : 0,
+                            "observations14Days" : 0,
+                            "observations21Days" : 0,
+                            "observations30Days" : 0,
+                            "observations60Days" : 0,
+                            "observations90Days" : 0,
+                            "emailFirstSeen" : "",
+                            "isMobileGateway" : false,
+                            "isHomeIP" : false,
+                            "ipCarrier" : "COGENT COMMUNICATIONS",
+                            "mnoPhoneToPhone" : 0,
+                            "mnoPhoneToName" : 0,
+                            "mnoPhoneToAddress" : 0,
+                            "mnoPhoneToEmail" : 0,
+                            "ipGeospatial" : [ 
+                                {
+                                    "timestamp" : "2024-01-22 00:18:08",
+                                    "count" : 171,
+                                    "maxKm" : 2749.04613032836,
+                                    "minKm" : 1149.96054600514,
+                                    "km25Percent" : 1333.00179006355,
+                                    "km50Percent" : 1333.00297042701,
+                                    "km75Percent" : 1518.57755638472,
+                                    "std" : 419.030796628892,
+                                    "skewness" : 2.38478204302283,
+                                    "avg" : 1537.79321098775,
+                                    "latSpan" : 2143.61232975492,
+                                    "lngSpan" : 3002.78114247046,
+                                    "hostingFacility" : false,
+                                    "isHome" : false,
+                                    "isMobileGateway" : false
+                                }
+                            ],
+                            "graphSearchResults" : {},
+                            "mnoCarrier" : "NA",
+                            "mnoLastPortDate" : "NA",
+                            "mnoPrepaid" : "NA",
+                            "identityAttributes" : {
+                                "percentAddressMatchWAddressEmail" : 0.0,
+                                "numberDistinctAddressWAddressEmail" : 0,
+                                "percentEmailMatchWAddressEmail" : 0.0,
+                                "numberDistinctEmailWAddressEmail" : 0,
+                                "avgLevenshteinFirstNameWAddressEmail" : 0.0,
+                                "maxLevenshteinFirstNameWAddressEmail" : 0.0,
+                                "minLevenshteinFirstNameWAddressEmail" : 0.0,
+                                "stdLevenshteinFirstNameWAddressEmail" : 0.0,
+                                "sumLevenshteinFirstNameWAddressEmail" : 0.0,
+                                "percentFirstNameMatchWAddressEmail" : 0.0,
+                                "numberDistinctFirstNameWAddressEmail" : 0,
+                                "avgLevenshteinLastNameWAddressEmail" : 0.0,
+                                "maxLevenshteinLastNameWAddressEmail" : 0.0,
+                                "minLevenshteinLastNameWAddressEmail" : 0.0,
+                                "stdLevenshteinLastNameWAddressEmail" : 0.0,
+                                "sumLevenshteinLastNameWAddressEmail" : 0.0,
+                                "percentLastNameMatchWAddressEmail" : 0.0,
+                                "numberDistinctLastNameWAddressEmail" : 0,
+                                "percentPhoneMatchWAddressEmail" : 0.0,
+                                "numberDistinctPhoneWAddressEmail" : 0,
+                                "percentAddressMatchWAddressPhone" : 0.0,
+                                "numberDistinctAddressWAddressPhone" : 0,
+                                "percentEmailMatchWAddressPhone" : 0.0,
+                                "numberDistinctEmailWAddressPhone" : 0,
+                                "avgLevenshteinFirstNameWAddressPhone" : 0.0,
+                                "maxLevenshteinFirstNameWAddressPhone" : 0.0,
+                                "minLevenshteinFirstNameWAddressPhone" : 0.0,
+                                "stdLevenshteinFirstNameWAddressPhone" : 0.0,
+                                "sumLevenshteinFirstNameWAddressPhone" : 0.0,
+                                "percentFirstNameMatchWAddressPhone" : 0.0,
+                                "numberDistinctFirstNameWAddressPhone" : 0,
+                                "avgLevenshteinLastNameWAddressPhone" : 0.0,
+                                "maxLevenshteinLastNameWAddressPhone" : 0.0,
+                                "minLevenshteinLastNameWAddressPhone" : 0.0,
+                                "stdLevenshteinLastNameWAddressPhone" : 0.0,
+                                "sumLevenshteinLastNameWAddressPhone" : 0.0,
+                                "percentLastNameMatchWAddressPhone" : 0.0,
+                                "numberDistinctLastNameWAddressPhone" : 0,
+                                "percentPhoneMatchWAddressPhone" : 0.0,
+                                "numberDistinctPhoneWAddressPhone" : 0,
+                                "percentAddressMatchWNameAddress" : 1.0,
+                                "numberDistinctAddressWNameAddress" : 1,
+                                "percentEmailMatchWNameAddress" : 0.0,
+                                "numberDistinctEmailWNameAddress" : 1,
+                                "avgLevenshteinFirstNameWNameAddress" : 0.0,
+                                "maxLevenshteinFirstNameWNameAddress" : 0.0,
+                                "minLevenshteinFirstNameWNameAddress" : 0.0,
+                                "stdLevenshteinFirstNameWNameAddress" : 0.0,
+                                "sumLevenshteinFirstNameWNameAddress" : 0.0,
+                                "percentFirstNameMatchWNameAddress" : 1.0,
+                                "numberDistinctFirstNameWNameAddress" : 1,
+                                "avgLevenshteinLastNameWNameAddress" : 0.0714285714285714,
+                                "maxLevenshteinLastNameWNameAddress" : 0.142857142857143,
+                                "minLevenshteinLastNameWNameAddress" : 0.0,
+                                "stdLevenshteinLastNameWNameAddress" : 0.101015254455221,
+                                "sumLevenshteinLastNameWNameAddress" : 0.142857142857143,
+                                "percentLastNameMatchWNameAddress" : 0.5,
+                                "numberDistinctLastNameWNameAddress" : 2,
+                                "percentPhoneMatchWNameAddress" : 0.0,
+                                "numberDistinctPhoneWNameAddress" : 0,
+                                "percentAddressMatchWPhoneEmail" : 0.0,
+                                "numberDistinctAddressWPhoneEmail" : 7,
+                                "percentEmailMatchWPhoneEmail" : 0.5,
+                                "numberDistinctEmailWPhoneEmail" : 2,
+                                "avgLevenshteinFirstNameWPhoneEmail" : 0.857142857142857,
+                                "maxLevenshteinFirstNameWPhoneEmail" : 0.857142857142857,
+                                "minLevenshteinFirstNameWPhoneEmail" : 0.857142857142857,
+                                "stdLevenshteinFirstNameWPhoneEmail" : 0.0,
+                                "sumLevenshteinFirstNameWPhoneEmail" : 9.42857142857143,
+                                "percentFirstNameMatchWPhoneEmail" : 0.0,
+                                "numberDistinctFirstNameWPhoneEmail" : 1,
+                                "avgLevenshteinLastNameWPhoneEmail" : 0.351752414252414,
+                                "maxLevenshteinLastNameWPhoneEmail" : 0.714285714285714,
+                                "minLevenshteinLastNameWPhoneEmail" : 0.0,
+                                "stdLevenshteinLastNameWPhoneEmail" : 0.302231089360865,
+                                "sumLevenshteinLastNameWPhoneEmail" : 3.86927655677656,
+                                "percentLastNameMatchWPhoneEmail" : 0.272727272727273,
+                                "numberDistinctLastNameWPhoneEmail" : 6,
+                                "percentPhoneMatchWPhoneEmail" : 0.0833333333333333,
+                                "numberDistinctPhoneWPhoneEmail" : 12,
+                                "percentAddressMatchWNamePhone" : 0.0,
+                                "numberDistinctAddressWNamePhone" : 4,
+                                "percentEmailMatchWNamePhone" : 0.0,
+                                "numberDistinctEmailWNamePhone" : 0,
+                                "avgLevenshteinFirstNameWNamePhone" : 0.0,
+                                "maxLevenshteinFirstNameWNamePhone" : 0.0,
+                                "minLevenshteinFirstNameWNamePhone" : 0.0,
+                                "stdLevenshteinFirstNameWNamePhone" : 0.0,
+                                "sumLevenshteinFirstNameWNamePhone" : 0.0,
+                                "percentFirstNameMatchWNamePhone" : 1.0,
+                                "numberDistinctFirstNameWNamePhone" : 1,
+                                "avgLevenshteinLastNameWNamePhone" : 0.230769230769231,
+                                "maxLevenshteinLastNameWNamePhone" : 0.461538461538462,
+                                "minLevenshteinLastNameWNamePhone" : 0.0,
+                                "stdLevenshteinLastNameWNamePhone" : 0.326356975932253,
+                                "sumLevenshteinLastNameWNamePhone" : 0.461538461538462,
+                                "percentLastNameMatchWNamePhone" : 0.5,
+                                "numberDistinctLastNameWNamePhone" : 2,
+                                "percentPhoneMatchWNamePhone" : 0.333333333333333,
+                                "numberDistinctPhoneWNamePhone" : 3,
+                                "percentAddressMatchWNameEmail" : 0.0,
+                                "numberDistinctAddressWNameEmail" : 11,
+                                "percentEmailMatchWNameEmail" : 0.272727272727273,
+                                "numberDistinctEmailWNameEmail" : 25,
+                                "avgLevenshteinFirstNameWNameEmail" : 0.0210526315789474,
+                                "maxLevenshteinFirstNameWNameEmail" : 0.2,
+                                "minLevenshteinFirstNameWNameEmail" : 0.0,
+                                "stdLevenshteinFirstNameWNameEmail" : 0.0630603535284611,
+                                "sumLevenshteinFirstNameWNameEmail" : 0.4,
+                                "percentFirstNameMatchWNameEmail" : 0.894736842105263,
+                                "numberDistinctFirstNameWNameEmail" : 3,
+                                "avgLevenshteinLastNameWNameEmail" : 0.183270676691729,
+                                "maxLevenshteinLastNameWNameEmail" : 1.0,
+                                "minLevenshteinLastNameWNameEmail" : 0.0,
+                                "stdLevenshteinLastNameWNameEmail" : 0.371718546437817,
+                                "sumLevenshteinLastNameWNameEmail" : 3.48214285714286,
+                                "percentLastNameMatchWNameEmail" : 0.789473684210526,
+                                "numberDistinctLastNameWNameEmail" : 4,
+                                "percentPhoneMatchWNameEmail" : 0.0,
+                                "numberDistinctPhoneWNameEmail" : 24
+                            },
+                            "clientLibrarySuccess" : true,
+                            "deviceGraphHashedEmailCount" : 0,
+                            "deviceGraphEmailMatch" : false
+                        },
+                        "overallScore" : 0.878684290891137,
+                        "deviceScore" : 0.792534996784549,
+                        "ipScore" : 0.580279337703329,
+                        "overallReasonCodes" : [],
+                        "deviceReasonCodes" : [],
+                        "ipReasonCodes" : [],
+                        "riskScores" : {
+                            "overall" : {
+                                "2" : {
+                                    "score" : "0.9076845101331519"
+                                },
+                                "3" : {
+                                    "score" : "0.9076845101331519"
+                                }
+                            },
+                            "device" : {
+                                "1" : {
+                                    "score" : "0.7925349967845493",
+                                    "reason" : []
+                                }
+                            },
+                            "ip" : {
+                                "1" : {
+                                    "score" : "0.5802793377033288",
+                                    "reason" : []
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "RUN4" : {
+                "nsr" : "dc15-eid-prod-gwy02:092",
+                "transid" : "41DC3AE3-924B-40AC-BD87-341876E3CD9641705882688360-ocedirect",
+                "errorcode" : "0",
+                "response" : [ 
+                    {
+                        "4287" : {
+                            "predictiveFeatures" : {
+                                "sessionId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+                                "aaMatchLevelDirect" : "No linkage for device",
+                                "aaMatchDirectKM" : -1.0,
+                                "aaMatchFirstSeen" : "",
+                                "aaMatchLevelInferred" : "No linkage for device",
+                                "aaMatchInferredKM" : -99.0,
+                                "aaMatchInferredFirstSeen" : "",
+                                "aaMatchLevelInferredGraph" : "No linkage for device",
+                                "aaMatchInferredGraphKM" : -99.0,
+                                "aaMatchInferredGraphFirstSeen" : "",
+                                "deviceGraphHHMatchLevel" : "No linkage for device",
+                                "deviceGraphHHMatchKM" : -1.0,
+                                "cookieAge" : -1,
+                                "ipRealScore" : 5,
+                                "ipConnectionType" : "No Record",
+                                "ipHostingIndicator" : false,
+                                "anonymizerStatus" : "No Record",
+                                "proxyLastDetected" : "No Record",
+                                "proxyType" : "No Record",
+                                "proxyLevel" : "No Record",
+                                "uaDeviceType" : "Mac",
+                                "uaBrowserFamily" : "Safari",
+                                "uaOperatingSystem" : "Mac",
+                                "ipAffinityHighRisk" : 465,
+                                "aaSIDs" : [],
+                                "ipToMobileGeoDistanceClassification" : "<100.0 KM",
+                                "emailMatch" : false,
+                                "emailCount" : 0,
+                                "enlPhoneToName" : 2,
+                                "enlAddressToName" : 1,
+                                "enlEmailToName" : 1,
+                                "enlEmailToPhone" : 1,
+                                "enlEmailToAddress" : 1,
+                                "enlAddressToPhone" : 0,
+                                "enlVerificationResult" : 1,
+                                "observations7Days" : 0,
+                                "observations14Days" : 0,
+                                "observations21Days" : 0,
+                                "observations30Days" : 0,
+                                "observations60Days" : 0,
+                                "observations90Days" : 0,
+                                "emailFirstSeen" : "",
+                                "isMobileGateway" : false,
+                                "isHomeIP" : false,
+                                "ipCarrier" : "COGENT COMMUNICATIONS",
+                                "mnoPhoneToPhone" : 0,
+                                "mnoPhoneToName" : 0,
+                                "mnoPhoneToAddress" : 0,
+                                "mnoPhoneToEmail" : 0,
+                                "ipGeospatial" : [ 
+                                    {
+                                        "timestamp" : "2024-01-22 00:18:08",
+                                        "count" : 171,
+                                        "maxKm" : 2749.04613032836,
+                                        "minKm" : 1149.96054600514,
+                                        "km25Percent" : 1333.00179006355,
+                                        "km50Percent" : 1333.00297042701,
+                                        "km75Percent" : 1518.57755638472,
+                                        "std" : 419.030796628892,
+                                        "skewness" : 2.38478204302283,
+                                        "avg" : 1537.79321098775,
+                                        "latSpan" : 2143.61232975492,
+                                        "lngSpan" : 3002.78114247046,
+                                        "hostingFacility" : false,
+                                        "isHome" : false,
+                                        "isMobileGateway" : false
+                                    }
+                                ],
+                                "graphSearchResults" : {},
+                                "mnoCarrier" : "NA",
+                                "mnoLastPortDate" : "NA",
+                                "mnoPrepaid" : "NA",
+                                "identityAttributes" : {
+                                    "percentAddressMatchWAddressEmail" : 0.0,
+                                    "numberDistinctAddressWAddressEmail" : 0,
+                                    "percentEmailMatchWAddressEmail" : 0.0,
+                                    "numberDistinctEmailWAddressEmail" : 0,
+                                    "avgLevenshteinFirstNameWAddressEmail" : 0.0,
+                                    "maxLevenshteinFirstNameWAddressEmail" : 0.0,
+                                    "minLevenshteinFirstNameWAddressEmail" : 0.0,
+                                    "stdLevenshteinFirstNameWAddressEmail" : 0.0,
+                                    "sumLevenshteinFirstNameWAddressEmail" : 0.0,
+                                    "percentFirstNameMatchWAddressEmail" : 0.0,
+                                    "numberDistinctFirstNameWAddressEmail" : 0,
+                                    "avgLevenshteinLastNameWAddressEmail" : 0.0,
+                                    "maxLevenshteinLastNameWAddressEmail" : 0.0,
+                                    "minLevenshteinLastNameWAddressEmail" : 0.0,
+                                    "stdLevenshteinLastNameWAddressEmail" : 0.0,
+                                    "sumLevenshteinLastNameWAddressEmail" : 0.0,
+                                    "percentLastNameMatchWAddressEmail" : 0.0,
+                                    "numberDistinctLastNameWAddressEmail" : 0,
+                                    "percentPhoneMatchWAddressEmail" : 0.0,
+                                    "numberDistinctPhoneWAddressEmail" : 0,
+                                    "percentAddressMatchWAddressPhone" : 0.0,
+                                    "numberDistinctAddressWAddressPhone" : 0,
+                                    "percentEmailMatchWAddressPhone" : 0.0,
+                                    "numberDistinctEmailWAddressPhone" : 0,
+                                    "avgLevenshteinFirstNameWAddressPhone" : 0.0,
+                                    "maxLevenshteinFirstNameWAddressPhone" : 0.0,
+                                    "minLevenshteinFirstNameWAddressPhone" : 0.0,
+                                    "stdLevenshteinFirstNameWAddressPhone" : 0.0,
+                                    "sumLevenshteinFirstNameWAddressPhone" : 0.0,
+                                    "percentFirstNameMatchWAddressPhone" : 0.0,
+                                    "numberDistinctFirstNameWAddressPhone" : 0,
+                                    "avgLevenshteinLastNameWAddressPhone" : 0.0,
+                                    "maxLevenshteinLastNameWAddressPhone" : 0.0,
+                                    "minLevenshteinLastNameWAddressPhone" : 0.0,
+                                    "stdLevenshteinLastNameWAddressPhone" : 0.0,
+                                    "sumLevenshteinLastNameWAddressPhone" : 0.0,
+                                    "percentLastNameMatchWAddressPhone" : 0.0,
+                                    "numberDistinctLastNameWAddressPhone" : 0,
+                                    "percentPhoneMatchWAddressPhone" : 0.0,
+                                    "numberDistinctPhoneWAddressPhone" : 0,
+                                    "percentAddressMatchWNameAddress" : 1.0,
+                                    "numberDistinctAddressWNameAddress" : 1,
+                                    "percentEmailMatchWNameAddress" : 0.0,
+                                    "numberDistinctEmailWNameAddress" : 1,
+                                    "avgLevenshteinFirstNameWNameAddress" : 0.0,
+                                    "maxLevenshteinFirstNameWNameAddress" : 0.0,
+                                    "minLevenshteinFirstNameWNameAddress" : 0.0,
+                                    "stdLevenshteinFirstNameWNameAddress" : 0.0,
+                                    "sumLevenshteinFirstNameWNameAddress" : 0.0,
+                                    "percentFirstNameMatchWNameAddress" : 1.0,
+                                    "numberDistinctFirstNameWNameAddress" : 1,
+                                    "avgLevenshteinLastNameWNameAddress" : 0.0714285714285714,
+                                    "maxLevenshteinLastNameWNameAddress" : 0.142857142857143,
+                                    "minLevenshteinLastNameWNameAddress" : 0.0,
+                                    "stdLevenshteinLastNameWNameAddress" : 0.101015254455221,
+                                    "sumLevenshteinLastNameWNameAddress" : 0.142857142857143,
+                                    "percentLastNameMatchWNameAddress" : 0.5,
+                                    "numberDistinctLastNameWNameAddress" : 2,
+                                    "percentPhoneMatchWNameAddress" : 0.0,
+                                    "numberDistinctPhoneWNameAddress" : 0,
+                                    "percentAddressMatchWPhoneEmail" : 0.0,
+                                    "numberDistinctAddressWPhoneEmail" : 7,
+                                    "percentEmailMatchWPhoneEmail" : 0.5,
+                                    "numberDistinctEmailWPhoneEmail" : 2,
+                                    "avgLevenshteinFirstNameWPhoneEmail" : 0.857142857142857,
+                                    "maxLevenshteinFirstNameWPhoneEmail" : 0.857142857142857,
+                                    "minLevenshteinFirstNameWPhoneEmail" : 0.857142857142857,
+                                    "stdLevenshteinFirstNameWPhoneEmail" : 0.0,
+                                    "sumLevenshteinFirstNameWPhoneEmail" : 9.42857142857143,
+                                    "percentFirstNameMatchWPhoneEmail" : 0.0,
+                                    "numberDistinctFirstNameWPhoneEmail" : 1,
+                                    "avgLevenshteinLastNameWPhoneEmail" : 0.351752414252414,
+                                    "maxLevenshteinLastNameWPhoneEmail" : 0.714285714285714,
+                                    "minLevenshteinLastNameWPhoneEmail" : 0.0,
+                                    "stdLevenshteinLastNameWPhoneEmail" : 0.302231089360865,
+                                    "sumLevenshteinLastNameWPhoneEmail" : 3.86927655677656,
+                                    "percentLastNameMatchWPhoneEmail" : 0.272727272727273,
+                                    "numberDistinctLastNameWPhoneEmail" : 6,
+                                    "percentPhoneMatchWPhoneEmail" : 0.0833333333333333,
+                                    "numberDistinctPhoneWPhoneEmail" : 12,
+                                    "percentAddressMatchWNamePhone" : 0.0,
+                                    "numberDistinctAddressWNamePhone" : 4,
+                                    "percentEmailMatchWNamePhone" : 0.0,
+                                    "numberDistinctEmailWNamePhone" : 0,
+                                    "avgLevenshteinFirstNameWNamePhone" : 0.0,
+                                    "maxLevenshteinFirstNameWNamePhone" : 0.0,
+                                    "minLevenshteinFirstNameWNamePhone" : 0.0,
+                                    "stdLevenshteinFirstNameWNamePhone" : 0.0,
+                                    "sumLevenshteinFirstNameWNamePhone" : 0.0,
+                                    "percentFirstNameMatchWNamePhone" : 1.0,
+                                    "numberDistinctFirstNameWNamePhone" : 1,
+                                    "avgLevenshteinLastNameWNamePhone" : 0.230769230769231,
+                                    "maxLevenshteinLastNameWNamePhone" : 0.461538461538462,
+                                    "minLevenshteinLastNameWNamePhone" : 0.0,
+                                    "stdLevenshteinLastNameWNamePhone" : 0.326356975932253,
+                                    "sumLevenshteinLastNameWNamePhone" : 0.461538461538462,
+                                    "percentLastNameMatchWNamePhone" : 0.5,
+                                    "numberDistinctLastNameWNamePhone" : 2,
+                                    "percentPhoneMatchWNamePhone" : 0.333333333333333,
+                                    "numberDistinctPhoneWNamePhone" : 3,
+                                    "percentAddressMatchWNameEmail" : 0.0,
+                                    "numberDistinctAddressWNameEmail" : 11,
+                                    "percentEmailMatchWNameEmail" : 0.272727272727273,
+                                    "numberDistinctEmailWNameEmail" : 25,
+                                    "avgLevenshteinFirstNameWNameEmail" : 0.0210526315789474,
+                                    "maxLevenshteinFirstNameWNameEmail" : 0.2,
+                                    "minLevenshteinFirstNameWNameEmail" : 0.0,
+                                    "stdLevenshteinFirstNameWNameEmail" : 0.0630603535284611,
+                                    "sumLevenshteinFirstNameWNameEmail" : 0.4,
+                                    "percentFirstNameMatchWNameEmail" : 0.894736842105263,
+                                    "numberDistinctFirstNameWNameEmail" : 3,
+                                    "avgLevenshteinLastNameWNameEmail" : 0.183270676691729,
+                                    "maxLevenshteinLastNameWNameEmail" : 1.0,
+                                    "minLevenshteinLastNameWNameEmail" : 0.0,
+                                    "stdLevenshteinLastNameWNameEmail" : 0.371718546437817,
+                                    "sumLevenshteinLastNameWNameEmail" : 3.48214285714286,
+                                    "percentLastNameMatchWNameEmail" : 0.789473684210526,
+                                    "numberDistinctLastNameWNameEmail" : 4,
+                                    "percentPhoneMatchWNameEmail" : 0.0,
+                                    "numberDistinctPhoneWNameEmail" : 24
+                                },
+                                "clientLibrarySuccess" : true,
+                                "deviceGraphHashedEmailCount" : 0,
+                                "deviceGraphEmailMatch" : false
+                            },
+                            "overallScore" : 0.878684290891137,
+                            "deviceScore" : 0.792534996784549,
+                            "ipScore" : 0.580279337703329,
+                            "overallReasonCodes" : [],
+                            "deviceReasonCodes" : [],
+                            "ipReasonCodes" : [],
+                            "riskScores" : {
+                                "overall" : {
+                                    "2" : {
+                                        "score" : "0.9076845101331519"
+                                    },
+                                    "3" : {
+                                        "score" : "0.9076845101331519"
+                                    }
+                                },
+                                "device" : {
+                                    "1" : {
+                                        "score" : "0.7925349967845493",
+                                        "reason" : []
+                                    }
+                                },
+                                "ip" : {
+                                    "1" : {
+                                        "score" : "0.5802793377033288",
+                                        "reason" : []
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "wppPrimaryPhoneCheckSubscriberName" : "testuser test2 Vazquez",
+        "wppSecondaryAddressCheckLinkedToPrimaryResident" : true,
+        "wppEmailAddressCheckIsValid" : true,
+        "wppSecondaryAddressCheckIsValid" : true,
+        "wppIdentityNetworkScore" : 0.964,
+        "wppTransactionId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+        "wppPrimaryAddressCheckIsForwarder" : false,
+        "wppAlternatePhoneCheckPhoneToName" : "Match",
+        "wppSecondaryAddressCheckInputCompleteness" : "Complete",
+        "wppPrimaryPhoneCheckCountryCode" : "US",
+        "wppPrimaryPhoneCheckLineType" : "Landline",
+        "wppAlternatePhoneCheckLineType" : "Landline",
+        "wppSecondaryEmailAddressCheckEmailFirstSeenDays" : 5898,
+        "wppPrimaryPhoneCheckPhoneToAddress" : "Postal match",
+        "wppIdentityCheckScore" : 484,
+        "wppSecondaryPhoneCheckCountryCode" : "US",
+        "wppPrimaryAddressCheckInputCompleteness" : "Complete",
+        "wppSecondaryPhoneCheckIsPrepaid" : false,
+        "wppPrimaryPhoneCheckCarrier" : "AT&T",
+        "wppPrimaryPhoneCheckIsValid" : true,
+        "wppSecondaryAddressCheckDistanceFromPrimaryAddress" : 0,
+        "wppPrimaryEmailAddressCheckMatchToAddress" : "No match",
+        "wppSecondaryPhoneCheckSubscriberName" : "testuser test2 Vazquez",
+        "wppPrimaryAddressCheckType" : "Single unit",
+        "wppSecondaryPhoneCheckWarning" : [],
+        "wppPrimaryEmailAddressCheckWarning" : [],
+        "wppPrimaryPhoneCheckPhoneToName" : "Match",
+        "wppPrimaryPhoneCheckWarning" : [],
+        "wppPrimaryAddressCheckAddressToName" : "Match",
+        "wppEmailAddressCheckIsDisposable" : false,
+        "wppSecondaryEmailAddressCheckIsDisposable" : false,
+        "wppSecondaryEmailAddressCheckWarning" : [],
+        "wppipAddressCheck" : {
+            "zipCode" : "32601",
+            "country" : "United States of America",
+            "city" : "Gainesville",
+            "countryCode" : "US",
+            "warnings" : [],
+            "isValid" : true,
+            "subDivision" : "Florida",
+            "isProxy" : false,
+            "continentCode" : "NA"
+        },
+        "wppSecondaryEmailAddressCheckIsAutoGenerated" : false,
+        "wppSecondaryEmailAddressCheckRegisteredOwnerName" : "testuser Vazquez",
+        "wppIpAddressCheckDistanceFromSecondaryAddress" : 829,
+        "wppPrimaryAddressCheckIsCommercial" : false,
+        "wppAlternatePhoneCheckPhoneToAddress" : "Postal match",
+        "wppAlternatePhoneCheckIsCommercial" : false,
+        "wppSecondaryAddressCheckType" : "Single unit",
+        "wppSecondaryAddressCheckAddressToName" : "Match",
+        "wppSecondaryEmailAddressCheckMatchToName" : "Match",
+        "wppIpAddressCheckDistanceFromPrimaryPhone" : 828,
+        "wppPrimaryPhoneCheckIsPrepaid" : false,
+        "wppIpAddressCheckDistanceFromPrimaryAddress" : 829,
+        "wppEmailAddressCheckEmailToName" : "Match",
+        "wppPrimaryPhoneCheckIsCommercial" : false,
+        "wppIpAddressCheckDistanceFromSecondaryPhone" : 828,
+        "wppSecondaryPhoneCheckCarrier" : "AT&T",
+        "wppSecondaryAddressCheckWarning" : [],
+        "wppSecondaryAddressCheckIsCommercial" : false,
+        "wppSecondaryEmailAddressCheckEmailDomainCreationDays" : 10161,
+        "wppPrimaryAddressCheckResidentName" : "testuser Vaequez",
+        "wppAlternatePhoneCheckIsValid" : true,
+        "wppEmailAddressCheckEmailFirstSeenDays" : 5898,
+        "wppPrimaryAddressCheckIsValid" : true,
+        "wppPrimaryAddressCheckWarnings" : [],
+        "wppSecondaryAddressCheckIsForwarder" : false,
+        "wppSecondaryAddressCheckResidentName" : "testuser Vaequez",
+        "wppEmailAddressCheckIsAutoGenerated" : false,
+        "wppEmailAddressCheckEmailDomainCreationDays" : 10161,
+        "wppSecondaryEmailAddressCheckMatchToAddress" : "No match",
+        "wpp" : {
+            "wppPrimaryPhoneCheckSubscriberName" : "testuser test2 Vazquez",
+            "wppSecondaryAddressCheckLinkedToPrimaryResident" : true,
+            "wppEmailAddressCheckIsValid" : true,
+            "wppSecondaryAddressCheckIsValid" : true,
+            "wppIdentityNetworkScore" : 0.964,
+            "wppTransactionId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+            "wppPrimaryAddressCheckIsForwarder" : false,
+            "wppAlternatePhoneCheckPhoneToName" : "Match",
+            "wppSecondaryAddressCheckInputCompleteness" : "Complete",
+            "wppPrimaryPhoneCheckCountryCode" : "US",
+            "wppPrimaryPhoneCheckLineType" : "Landline",
+            "wppAlternatePhoneCheckLineType" : "Landline",
+            "wppSecondaryEmailAddressCheckEmailFirstSeenDays" : 5898,
+            "wppPrimaryPhoneCheckPhoneToAddress" : "Postal match",
+            "wppIdentityCheckScore" : 484,
+            "wppSecondaryPhoneCheckCountryCode" : "US",
+            "wppPrimaryAddressCheckInputCompleteness" : "Complete",
+            "wppSecondaryPhoneCheckIsPrepaid" : false,
+            "wppPrimaryPhoneCheckCarrier" : "AT&T",
+            "wppPrimaryPhoneCheckIsValid" : true,
+            "wppSecondaryAddressCheckDistanceFromPrimaryAddress" : 0,
+            "wppPrimaryEmailAddressCheckMatchToAddress" : "No match",
+            "wppSecondaryPhoneCheckSubscriberName" : "testuser test2 Vazquez",
+            "wppPrimaryAddressCheckType" : "Single unit",
+            "wppSecondaryPhoneCheckWarning" : [],
+            "wppPrimaryEmailAddressCheckWarning" : [],
+            "wppPrimaryPhoneCheckPhoneToName" : "Match",
+            "wppPrimaryPhoneCheckWarning" : [],
+            "wppPrimaryAddressCheckAddressToName" : "Match",
+            "wppEmailAddressCheckIsDisposable" : false,
+            "wppSecondaryEmailAddressCheckIsDisposable" : false,
+            "wppSecondaryEmailAddressCheckWarning" : [],
+            "wppipAddressCheck" : {
+                "zipCode" : "32601",
+                "country" : "United States of America",
+                "city" : "Gainesville",
+                "countryCode" : "US",
+                "warnings" : [],
+                "isValid" : true,
+                "subDivision" : "Florida",
+                "isProxy" : false,
+                "continentCode" : "NA"
+            },
+            "wppSecondaryEmailAddressCheckIsAutoGenerated" : false,
+            "wppSecondaryEmailAddressCheckRegisteredOwnerName" : "testuser Vazquez",
+            "wppIpAddressCheckDistanceFromSecondaryAddress" : 829,
+            "wppPrimaryAddressCheckIsCommercial" : false,
+            "wppAlternatePhoneCheckPhoneToAddress" : "Postal match",
+            "wppAlternatePhoneCheckIsCommercial" : false,
+            "wppSecondaryAddressCheckType" : "Single unit",
+            "wppSecondaryAddressCheckAddressToName" : "Match",
+            "wppSecondaryEmailAddressCheckMatchToName" : "Match",
+            "wppIpAddressCheckDistanceFromPrimaryPhone" : 828,
+            "wppPrimaryPhoneCheckIsPrepaid" : false,
+            "wppIpAddressCheckDistanceFromPrimaryAddress" : 829,
+            "wppEmailAddressCheckEmailToName" : "Match",
+            "wppPrimaryPhoneCheckIsCommercial" : false,
+            "wppIpAddressCheckDistanceFromSecondaryPhone" : 828,
+            "wppSecondaryPhoneCheckCarrier" : "AT&T",
+            "wppSecondaryAddressCheckWarning" : [],
+            "wppSecondaryAddressCheckIsCommercial" : false,
+            "wppSecondaryEmailAddressCheckEmailDomainCreationDays" : 10161,
+            "wppPrimaryAddressCheckResidentName" : "testuser Vaequez",
+            "wppAlternatePhoneCheckIsValid" : true,
+            "wppEmailAddressCheckEmailFirstSeenDays" : 5898,
+            "wppPrimaryAddressCheckIsValid" : true,
+            "wppPrimaryAddressCheckWarnings" : [],
+            "wppSecondaryAddressCheckIsForwarder" : false,
+            "wppSecondaryAddressCheckResidentName" : "testuser Vaequez",
+            "wppEmailAddressCheckIsAutoGenerated" : false,
+            "wppEmailAddressCheckEmailDomainCreationDays" : 10161,
+            "wppSecondaryEmailAddressCheckMatchToAddress" : "No match",
+            "RUN4" : {
+                "wppPrimaryPhoneCheckSubscriberName" : "testuser test2 Vazquez",
+                "wppSecondaryAddressCheckLinkedToPrimaryResident" : true,
+                "wppEmailAddressCheckIsValid" : true,
+                "wppSecondaryAddressCheckIsValid" : true,
+                "wppIdentityNetworkScore" : 0.964,
+                "wppTransactionId" : "339668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+                "wppPrimaryAddressCheckIsForwarder" : false,
+                "wppAlternatePhoneCheckPhoneToName" : "Match",
+                "wppSecondaryAddressCheckInputCompleteness" : "Complete",
+                "wppPrimaryPhoneCheckCountryCode" : "US",
+                "wppPrimaryPhoneCheckLineType" : "Landline",
+                "wppAlternatePhoneCheckLineType" : "Landline",
+                "wppSecondaryEmailAddressCheckEmailFirstSeenDays" : 5898,
+                "wppPrimaryPhoneCheckPhoneToAddress" : "Postal match",
+                "wppIdentityCheckScore" : 484,
+                "wppSecondaryPhoneCheckCountryCode" : "US",
+                "wppPrimaryAddressCheckInputCompleteness" : "Complete",
+                "wppSecondaryPhoneCheckIsPrepaid" : false,
+                "wppPrimaryPhoneCheckCarrier" : "AT&T",
+                "wppPrimaryPhoneCheckIsValid" : true,
+                "wppSecondaryAddressCheckDistanceFromPrimaryAddress" : 0,
+                "wppPrimaryEmailAddressCheckMatchToAddress" : "No match",
+                "wppSecondaryPhoneCheckSubscriberName" : "testuser test2 Vazquez",
+                "wppPrimaryAddressCheckType" : "Single unit",
+                "wppSecondaryPhoneCheckWarning" : [],
+                "wppPrimaryEmailAddressCheckWarning" : [],
+                "wppPrimaryPhoneCheckPhoneToName" : "Match",
+                "wppPrimaryPhoneCheckWarning" : [],
+                "wppPrimaryAddressCheckAddressToName" : "Match",
+                "wppEmailAddressCheckIsDisposable" : false,
+                "wppSecondaryEmailAddressCheckIsDisposable" : false,
+                "wppSecondaryEmailAddressCheckWarning" : [],
+                "wppipAddressCheck" : {
+                    "zipCode" : "32601",
+                    "country" : "United States of America",
+                    "city" : "Gainesville",
+                    "countryCode" : "US",
+                    "warnings" : [],
+                    "isValid" : true,
+                    "subDivision" : "Florida",
+                    "isProxy" : false,
+                    "continentCode" : "NA"
+                },
+                "wppSecondaryEmailAddressCheckIsAutoGenerated" : false,
+                "wppSecondaryEmailAddressCheckRegisteredOwnerName" : "testuser Vazquez",
+                "wppIpAddressCheckDistanceFromSecondaryAddress" : 829,
+                "wppPrimaryAddressCheckIsCommercial" : false,
+                "wppAlternatePhoneCheckPhoneToAddress" : "Postal match",
+                "wppAlternatePhoneCheckIsCommercial" : false,
+                "wppSecondaryAddressCheckType" : "Single unit",
+                "wppSecondaryAddressCheckAddressToName" : "Match",
+                "wppSecondaryEmailAddressCheckMatchToName" : "Match",
+                "wppIpAddressCheckDistanceFromPrimaryPhone" : 828,
+                "wppPrimaryPhoneCheckIsPrepaid" : false,
+                "wppIpAddressCheckDistanceFromPrimaryAddress" : 829,
+                "wppEmailAddressCheckEmailToName" : "Match",
+                "wppPrimaryPhoneCheckIsCommercial" : false,
+                "wppIpAddressCheckDistanceFromSecondaryPhone" : 828,
+                "wppSecondaryPhoneCheckCarrier" : "AT&T",
+                "wppSecondaryAddressCheckWarning" : [],
+                "wppSecondaryAddressCheckIsCommercial" : false,
+                "wppSecondaryEmailAddressCheckEmailDomainCreationDays" : 10161,
+                "wppPrimaryAddressCheckResidentName" : "testuser Vaequez",
+                "wppAlternatePhoneCheckIsValid" : true,
+                "wppEmailAddressCheckEmailFirstSeenDays" : 5898,
+                "wppPrimaryAddressCheckIsValid" : true,
+                "wppPrimaryAddressCheckWarnings" : [],
+                "wppSecondaryAddressCheckIsForwarder" : false,
+                "wppSecondaryAddressCheckResidentName" : "testuser Vaequez",
+                "wppEmailAddressCheckIsAutoGenerated" : false,
+                "wppEmailAddressCheckEmailDomainCreationDays" : 10161,
+                "wppSecondaryEmailAddressCheckMatchToAddress" : "No match"
+            }
+        },
+        "mitigation" : "201andOFFLINEDigital",
+        "mitigationAction" : true,
+        "mitigationRule" : "96",
+        "machineLearning" : {
+            "df" : {
+                "scoreStr" : "70%",
+                "score" : 0.698381006717682,
+                "commonServiceSessionId" : "330668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+                "modelVersion" : "6.0",
+                "scoreType" : "modelScore",
+                "applicationTimeStamp" : "2024-01-22T00:18:08.360Z",
+                "modelKey" : "dfvelocitywppneustarv6model"
+            },
+            "clickstream" : {
+                "scoreStr" : "30%",
+                "score" : 0.2988213234,
+                "commonServiceSessionId" : "330668000_f03bfd9b35fc98ee31b99028e0cc92ae",
+                "modelVersion" : "1.0",
+                "scoreType" : "modelScore",
+                "applicationTimeStamp" : "2024-01-22T00:18:08.360Z",
+                "modelKey" : "clickstreammodel"
+            }
+        },
+        "mitigationRef" : "oced/4/4kp/210/96/201.1111/330668000_f03bfd9b35fc98ee31b99028e0cc92ae/0121181810133",
+        "authenticId" : {
+            "runType" : "OFFLINEDIGITAL",
+            "authenticIDUrl" : "https://verifyid.att.com/index.html?token=5f5ce0ae-f316-477a-aec2-96e9ca497147",
+            "authenticRequestId" : "5f5ce0ae-f316-477a-aec2-96e9ca497147",
+            "requestID" : "5f5ce0ae-f316-477a-aec2-96e9ca497147",
+            "channel" : "authenticIdResult",
+            "run" : "Q2CRESULT",
+            "transactions" : [ 
+                {
+                    "sequenceNumber" : 0,
+                    "transactionDetails" : {
+                        "backIsBarcodeDetectedEnabled" : "true",
+                        "accountCode" : "777",
+                        "documentType" : "01",
+                        "frontSetManualTimeout" : "8",
+                        "backSetManualTimeout" : "8",
+                        "frontCaptureAttempt" : "2",
+                        "enableFarSelfie" : "false",
+                        "transactionExpiryTimeInMin" : "60",
+                        "backCaptureMode" : "Auto",
+                        "requestExpiryTimeInMin" : "1440",
+                        "enableSelfieCapture" : "false",
+                        "backCaptureAttempt" : "2",
+                        "C_RequestCreationDate" : "22/Jan/2024",
+                        "C_RequestCreationTime" : "00:18:10",
+                        "transactionAttempts" : "3",
+                        "enableMutualTLS" : "true"
+                    },
+                    "pii" : {},
+                    "transactionStatus" : "EXPIRED",
+                    "executedDeletionRule" : false
+                }
+            ],
+            "applicationId" : "authenticIDResult:5f5ce0ae-f316-477a-aec2-96e9ca497147",
+            "requestStatus" : "EXPIRED"
+        },
+        "executedDeletionRule" : false,
+        "dataplexRules" : [ 
+            "99", 
+            "97"
+        ],
+        "nameMatchMatrixCCRR" : {
+            "maxScore" : 0,
+            "minScore" : 0,
+            "nameMatchCount" : 0,
+            "nameMatchList" : [],
+            "response" : "Missing fromValue or toValue",
+            "responseCode" : "400",
+            "type" : ""
+        }
+    },
+    "_class" : "com.att.bdcoe.cmt.ApplicationRecord"
+}

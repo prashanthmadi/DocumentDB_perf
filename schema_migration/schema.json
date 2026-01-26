@@ -1,0 +1,571 @@
+{
+  "extracted_at": "2026-01-26T03:51:08.836Z",
+  "databases": [
+    {
+      "database": "sample_airbnb",
+      "size_gb": 0.057102203369140625,
+      "collections": [
+        {
+          "name": "listingsAndReviews",
+          "doc_count": 5555,
+          "size_gb": 0.08788163866847754,
+          "avg_doc_size": 16986,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            },
+            {
+              "name": "name_1",
+              "keys": {
+                "name": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": true
+            },
+            {
+              "name": "address.location_2dsphere",
+              "keys": {
+                "address.location": "2dsphere"
+              },
+              "unique": false,
+              "sparse": false,
+              "background": true
+            },
+            {
+              "name": "property_type_1_room_type_1_beds_1",
+              "keys": {
+                "property_type": 1,
+                "room_type": 1,
+                "beds": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": true
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_analytics",
+      "size_gb": 0.013195037841796875,
+      "collections": [
+        {
+          "name": "accounts",
+          "doc_count": 1746,
+          "size_gb": 0.00020790379494428635,
+          "avg_doc_size": 127,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "transactions",
+          "doc_count": 1746,
+          "size_gb": 0.015029934234917164,
+          "avg_doc_size": 9242,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "customers",
+          "doc_count": 500,
+          "size_gb": 0.00018235854804515839,
+          "avg_doc_size": 391,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_geospatial",
+      "size_gb": 0.00193023681640625,
+      "collections": [
+        {
+          "name": "shipwrecks",
+          "doc_count": 11095,
+          "size_gb": 0.0033907266333699226,
+          "avg_doc_size": 328,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            },
+            {
+              "name": "coordinates_2dsphere",
+              "keys": {
+                "coordinates": "2dsphere"
+              },
+              "unique": false,
+              "sparse": false,
+              "background": true
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_guides",
+      "size_gb": 6.866455078125e-05,
+      "collections": [
+        {
+          "name": "planets",
+          "doc_count": 8,
+          "size_gb": 1.2349337339401245e-06,
+          "avg_doc_size": 165,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_mflix",
+      "size_gb": 0.11203765869140625,
+      "collections": [
+        {
+          "name": "sessions",
+          "doc_count": 1,
+          "size_gb": 5.029141902923584e-07,
+          "avg_doc_size": 540,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            },
+            {
+              "name": "user_id_1",
+              "keys": {
+                "user_id": 1
+              },
+              "unique": true,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "movies",
+          "doc_count": 21349,
+          "size_gb": 0.0317758247256279,
+          "avg_doc_size": 1598,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            },
+            {
+              "name": "cast_text_fullplot_text_genres_text_title_text",
+              "keys": {
+                "_fts": "text",
+                "_ftsx": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "users",
+          "doc_count": 185,
+          "size_gb": 2.753734588623047e-05,
+          "avg_doc_size": 159,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            },
+            {
+              "name": "email_1",
+              "keys": {
+                "email": 1
+              },
+              "unique": true,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "comments",
+          "doc_count": 41079,
+          "size_gb": 0.01088370755314827,
+          "avg_doc_size": 284,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "theaters",
+          "doc_count": 1564,
+          "size_gb": 0.00032580550760030746,
+          "avg_doc_size": 223,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            },
+            {
+              "name": "geo index",
+              "keys": {
+                "location.geo": "2dsphere"
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "embedded_movies",
+          "doc_count": 3483,
+          "size_gb": 0.051151747815310955,
+          "avg_doc_size": 15769,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_restaurants",
+      "size_gb": 0.010654449462890625,
+      "collections": [
+        {
+          "name": "restaurants",
+          "doc_count": 25359,
+          "size_gb": 0.009894571267068386,
+          "avg_doc_size": 418,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "neighborhoods",
+          "doc_count": 195,
+          "size_gb": 0.0031570522114634514,
+          "avg_doc_size": 17383,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_supplies",
+      "size_gb": 0.0019683837890625,
+      "collections": [
+        {
+          "name": "sales",
+          "doc_count": 5000,
+          "size_gb": 0.004030970856547356,
+          "avg_doc_size": 865,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_training",
+      "size_gb": 0.06360626220703125,
+      "collections": [
+        {
+          "name": "grades",
+          "doc_count": 100000,
+          "size_gb": 0.02169981598854065,
+          "avg_doc_size": 233,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "inspections",
+          "doc_count": 80047,
+          "size_gb": 0.020632115192711353,
+          "avg_doc_size": 276,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "companies",
+          "doc_count": 9500,
+          "size_gb": 0.0339707899838686,
+          "avg_doc_size": 3839,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "posts",
+          "doc_count": 500,
+          "size_gb": 0.016254748217761517,
+          "avg_doc_size": 34906,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "zips",
+          "doc_count": 29470,
+          "size_gb": 0.003060130402445793,
+          "avg_doc_size": 111,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "trips",
+          "doc_count": 10000,
+          "size_gb": 0.003989662975072861,
+          "avg_doc_size": 428,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        },
+        {
+          "name": "routes",
+          "doc_count": 66985,
+          "size_gb": 0.011486523784697056,
+          "avg_doc_size": 184,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    },
+    {
+      "database": "sample_weatherdata",
+      "size_gb": 0.0041961669921875,
+      "collections": [
+        {
+          "name": "data",
+          "doc_count": 10000,
+          "size_gb": 0.015769734978675842,
+          "avg_doc_size": 1693,
+          "indexes": [
+            {
+              "name": "_id_",
+              "keys": {
+                "_id": 1
+              },
+              "unique": false,
+              "sparse": false,
+              "background": false
+            }
+          ],
+          "is_sharded": false,
+          "shard_key": null
+        }
+      ]
+    }
+  ]
+}

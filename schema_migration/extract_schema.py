@@ -20,6 +20,76 @@ import tempfile
 from dotenv import load_dotenv
 
 
+def mask_password(connection_string: str) -> str:
+    """Mask password in connection string for logging"""
+    try:
+        if '@' in connection_string:
+            # Format: mongodb://user:password@host...
+            parts = connection_string.split('@')
+            if len(parts) >= 2 and '://' in parts[0]:
+                protocol_and_creds = parts[0]
+                if ':' in protocol_and_creds.split('//')[-1]:
+                    # Has user:password
+                    protocol_user = protocol_and_creds.rsplit(':', 1)[0]
+                    return f"{protocol_user}:***@{parts[1]}"
+        return connection_string
+    except:
+        return "***"
+
+
+def check_mongo_cli(force_legacy: bool = False) -> str:
+    """Check which MongoDB CLI is available (mongosh or mongo)"""
+    print("🔍 Checking for MongoDB CLI...")
+    
+    if force_legacy:
+        print("   ⚠️  Forcing legacy 'mongo' CLI (--use-legacy-cli flag)")
+        # Only try mongo
+        try:
+            result = subprocess.run(['mongo', '--version'], capture_output=True, text=True, timeout=5)
+            if result.returncode == 0:
+                version = result.stdout.strip().split('\n')[0]
+                print(f"   ✓ Found mongo: {version}")
+                return 'mongo'
+        except FileNotFoundError:
+            print("   ✗ mongo not found")
+        except Exception as e:
+            print(f"   ✗ Error checking mongo: {e}")
+        
+        print("\n❌ Error: Legacy 'mongo' CLI not found")
+        print("\nPlease install MongoDB 3.6 or 4.0 client tools\n")
+        sys.exit(1)
+    
+    # Try mongosh first (newer)
+    try:
+        result = subprocess.run(['mongosh', '--version'], capture_output=True, text=True, timeout=5)
+        if result.returncode == 0:
+            version = result.stdout.strip().split('\n')[0]
+            print(f"   ✓ Found mongosh: {version}")
+            return 'mongosh'
+    except FileNotFoundError:
+        print("   ✗ mongosh not found")
+    except Exception as e:
+        print(f"   ✗ Error checking mongosh: {e}")
+    
+    # Try mongo (legacy)
+    try:
+        result = subprocess.run(['mongo', '--version'], capture_output=True, text=True, timeout=5)
+        if result.returncode == 0:
+            version = result.stdout.strip().split('\n')[0]
+            print(f"   ✓ Found mongo: {version}")
+            return 'mongo'
+    except FileNotFoundError:
+        print("   ✗ mongo not found")
+    except Exception as e:
+        print(f"   ✗ Error checking mongo: {e}")
+    
+    print("\n❌ Error: No MongoDB CLI found (neither 'mongosh' nor 'mongo')")
+    print("\nPlease install MongoDB Shell:")
+    print("   - For MongoDB 4.0+: https://www.mongodb.com/try/download/shell")
+    print("   - For MongoDB 3.6: Install MongoDB which includes the 'mongo' CLI\n")
+    sys.exit(1)
+
+
 def load_config():
     """Load configuration from .env file"""
     load_dotenv()
@@ -32,14 +102,19 @@ def load_config():
         print("   2. Update SOURCE_MONGODB_CONNECTION_STRING with your source MongoDB endpoint\n")
         sys.exit(1)
     
+    print(f"📝 Connection string loaded: {mask_password(connection_string)}")
+    
     return {
         'connection_string': connection_string,
         'timeout': int(os.getenv('TIMEOUT_SECONDS', '120'))
     }
 
 
-def extract_schema(config: dict) -> dict:
+def extract_schema(config: dict, mongo_cli: str) -> dict:
     """Extract complete schema from source MongoDB"""
+    
+    print(f"🔧 Using MongoDB CLI: {mongo_cli}")
+    print(f"⏱️  Timeout: {config['timeout']} seconds\n")
     
     # MongoDB script to extract schema
     script = """
@@ -134,12 +209,23 @@ print(JSON.stringify(schema, null, 2));
     
     try:
         # Create temporary file for the script
+        print("📝 Creating temporary script file...")
         with tempfile.NamedTemporaryFile(mode='w', suffix='.js', delete=False, encoding='utf-8') as tmp:
             tmp.write(script)
             tmp_path = tmp.name
+        print(f"   Script file: {tmp_path}")
         
-        # Execute mongosh
-        cmd = ['mongosh', config['connection_string'], '--file', tmp_path, '--quiet']
+        # Build command based on CLI version
+        if mongo_cli == 'mongosh':
+            cmd = ['mongosh', config['connection_string'], '--file', tmp_path, '--quiet']
+        else:
+            # For legacy mongo CLI
+            cmd = ['mongo', config['connection_string'], '--quiet', tmp_path]
+        
+        print(f"\n🚀 Executing command...")
+        print(f"   Command: {cmd[0]} {mask_password(' '.join(cmd[1:]))}")
+        print(f"   Working directory: {os.getcwd()}")
+        print(f"\n⏳ Connecting to MongoDB server...\n")
         
         result = subprocess.run(
             cmd,
@@ -150,26 +236,99 @@ print(JSON.stringify(schema, null, 2));
         )
         
         # Clean up temp file
-        os.unlink(tmp_path)
+        try:
+            os.unlink(tmp_path)
+            print("🧹 Cleaned up temporary script file")
+        except:
+            pass
+        
+        print(f"\n📊 Command completed with exit code: {result.returncode}\n")
         
         if result.returncode == 0:
-            # Parse JSON output
-            schema = json.loads(result.stdout)
-            return schema
+            print("✓ Connection successful")
+            print(f"📄 Output length: {len(result.stdout)} characters")
+            
+            if result.stdout.strip():
+                print("\n🔍 Parsing JSON output...")
+                try:
+                    # Parse JSON output
+                    schema = json.loads(result.stdout)
+                    print("✓ JSON parsed successfully\n")
+                    return schema
+                except json.JSONDecodeError as e:
+                    print(f"\n❌ Error parsing schema JSON: {e}")
+                    print(f"\n--- Raw Output (first 1000 chars) ---")
+                    print(result.stdout[:1000])
+                    print("\n--- End of Output ---\n")
+                    sys.exit(1)
+            else:
+                print("\n❌ Error: No output received from MongoDB")
+                if result.stderr:
+                    print(f"\nStderr: {result.stderr}")
+                sys.exit(1)
         else:
-            print(f"❌ Error extracting schema:")
-            print(result.stderr)
+            print("\n❌ Error extracting schema:")
+            print(f"\nExit code: {result.returncode}")
+            
+            if result.stderr:
+                print(f"\n--- Error Output ---")
+                print(result.stderr)
+                print("--- End of Error Output ---\n")
+            
+            if result.stdout:
+                print(f"\n--- Standard Output ---")
+                print(result.stdout)
+                print("--- End of Standard Output ---\n")
+            
+            # Parse specific error types
+            error_msg = result.stderr + result.stdout
+            if 'wire version' in error_msg and 'requires at least' in error_msg:
+                print("\n💡 MongoDB Version Incompatibility Detected:")
+                print("   - Your MongoDB server is too old for mongosh")
+                print("   - mongosh requires MongoDB 4.2+")
+                print("   - Your server appears to be MongoDB 3.6 or earlier")
+                print("\n   SOLUTION: Use the legacy 'mongo' CLI instead:")
+                print("   1. Install MongoDB 3.6 client tools (includes 'mongo' CLI)")
+                print("   2. Re-run this script - it will auto-detect the 'mongo' CLI")
+                print("   3. Or force it: python extract_schema.py --use-legacy-cli\n")
+            elif 'ENOTFOUND' in error_msg or 'getaddrinfo' in error_msg:
+                print("\n💡 DNS Resolution Error Detected:")
+                print("   - The hostname in your connection string cannot be resolved")
+                print("   - Check that the hostname is correct")
+                print("   - Verify network connectivity and DNS settings")
+                print(f"   - Connection string: {mask_password(config['connection_string'])}\n")
+            elif 'ECONNREFUSED' in error_msg:
+                print("\n💡 Connection Refused:")
+                print("   - The server is not accepting connections on the specified port")
+                print("   - Verify the server is running and the port is correct\n")
+            elif 'Authentication failed' in error_msg or 'auth failed' in error_msg:
+                print("\n💡 Authentication Error:")
+                print("   - Check your username and password")
+                print("   - Verify the authentication database is correct\n")
+            elif 'ETIMEDOUT' in error_msg or 'timed out' in error_msg:
+                print("\n💡 Connection Timeout:")
+                print("   - The server is not responding")
+                print("   - Check firewall rules and network connectivity\n")
+            
             sys.exit(1)
             
     except subprocess.TimeoutExpired:
-        print(f"❌ Schema extraction timed out after {config['timeout']} seconds")
+        print(f"\n❌ Schema extraction timed out after {config['timeout']} seconds")
+        print("\n💡 Suggestions:")
+        print("   - Increase timeout in .env file: TIMEOUT_SECONDS=300")
+        print("   - Check network connectivity to MongoDB server")
+        print("   - Verify the server is responding\n")
         sys.exit(1)
-    except json.JSONDecodeError as e:
-        print(f"❌ Error parsing schema JSON: {e}")
-        print(f"Output: {result.stdout}")
+    except FileNotFoundError as e:
+        print(f"\n❌ Command not found: {e}")
+        print(f"\n💡 Make sure {mongo_cli} is installed and available in your PATH\n")
         sys.exit(1)
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"\n❌ Unexpected error: {type(e).__name__}: {e}")
+        import traceback
+        print("\n--- Stack Trace ---")
+        traceback.print_exc()
+        print("--- End of Stack Trace ---\n")
         sys.exit(1)
 
 
@@ -179,16 +338,28 @@ def main():
     
     parser = argparse.ArgumentParser(description='Extract MongoDB schema from source server')
     parser.add_argument('--output', default='schema.json', help='Output schema JSON file')
+    parser.add_argument('--use-legacy-cli', action='store_true', 
+                       help='Force use of legacy "mongo" CLI instead of "mongosh" (for MongoDB 3.6)')
     args = parser.parse_args()
+    
+    print("="*60)
+    print("MongoDB Schema Extraction Tool")
+    print("="*60)
+    print()
+    
+    # Check MongoDB CLI availability
+    mongo_cli = check_mongo_cli(force_legacy=args.use_legacy_cli)
+    print()
     
     print("🔌 Connecting to source MongoDB server...")
     
     # Load configuration
     config = load_config()
+    print()
     
     # Extract schema
-    print("📊 Extracting schema (databases, collections, indexes, shard keys)...\n")
-    schema = extract_schema(config)
+    print("📊 Extracting schema (databases, collections, indexes, shard keys)...")
+    schema = extract_schema(config, mongo_cli)
     
     # Calculate totals
     total_collections = sum(len(db['collections']) for db in schema['databases'])

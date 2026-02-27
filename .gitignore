@@ -38,3 +38,6 @@ desktop.ini
 *.temp
 ~$*.xlsx
 data/Query_Execution_output.xlsx
+schema_migration/output.txt
+.gitignore
+schema_migration/schema_att.json
